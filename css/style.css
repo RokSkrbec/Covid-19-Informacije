@@ -21,6 +21,7 @@ nav {
 
 nav h1 {
   font-size: 3rem;
+  font-family: 'Bitter', sans-serif;
 }
 
 main {
@@ -33,13 +34,8 @@ main {
 }
 
 table {
-  width: 90%;
-}
-
-table,
-th,
-td {
-  font-family: 'Bitter', sans-serif;
+  width: 60%;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 th div {
@@ -51,8 +47,8 @@ th div {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 1.3rem;
-  padding: 0.1rem 0.5rem;
+  font-size: 2rem;
+  padding: 0.1rem 0.3rem 0.1rem 0.1rem;
 }
 
 th div .order i {
@@ -60,8 +56,9 @@ th div .order i {
 }
 
 td {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   text-align: center;
+  height: 4rem;
 }
 
 tr:nth-child(odd) {
@@ -70,5 +67,13 @@ tr:nth-child(odd) {
 
 tr:nth-child(even) {
   background-color: #ddd;
+}
+
+tr:nth-child(odd):hover {
+  background-color: #eee;
+}
+
+tr:nth-child(even):hover {
+  background-color: #ccc;
 }
 /*# sourceMappingURL=style.css.map */
