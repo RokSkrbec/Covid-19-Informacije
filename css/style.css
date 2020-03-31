@@ -36,6 +36,7 @@ main {
 table {
   width: 60%;
   font-family: 'IBM Plex Sans', sans-serif;
+  display: table;
 }
 
 th div {

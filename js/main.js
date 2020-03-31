@@ -4,7 +4,7 @@ const table = document.getElementById('table-body')
 fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
   .then(res => res.json())
   .then(data => {
-    for (let i = 0; i < data.reports[0].table[0].length; i++) {
+    for (let i = 0; i < data.reports[0].table[0].length - 1; i++) {
       allCountriesCovidData[i] = {
         TotalCases: data.reports[0].table[0][i].TotalCases === '' ? '' : parseInt(data.reports[0].table[0][i].TotalCases.replace(',', '')),
         NewCases: data.reports[0].table[0][i].NewCases === '' ? '' : parseInt(data.reports[0].table[0][i].NewCases.replace('+', '').replace(',', '')),
@@ -217,6 +217,7 @@ function showTableData() {
     CasesPercent = allCountriesCovidData[i].CasesPercent
     CasesPercent = Number(CasesPercent).toFixed(4)
     table.innerHTML += `<tr>
+    <td>${i + 1}</td>
     <td>${allCountriesCovidData[i].Country}</td>
     <td>${allCountriesCovidData[i].TotalCases}</td>
     <td>${allCountriesCovidData[i].NewCases}</td>
