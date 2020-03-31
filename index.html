@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/04a2ad65c9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bitter|IBM+Plex+Sans|Concert+One&display=swap" rel="stylesheet" />
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>How fucked are we?</title>
+  </head>
+  <body>
+    <nav><h1>How fucked are we?</h1></nav>
+    <main>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>
+              <div>
+                Country
+                <div class="order">
+                  <div class="country-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="country-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                TotalCases
+                <div class="order">
+                  <div class="total-cases-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="total-cases-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                NewCases
+                <div class="order">
+                  <div class="new-cases-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="new-cases-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                TotalDeaths
+                <div class="order">
+                  <div class="total-deaths-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="total-deaths-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                NewDeaths
+                <div class="order">
+                  <div class="new-deaths-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="new-deaths-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                TotalRecovered
+                <div class="order">
+                  <div class="total-recovered-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="total-recovered-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                ActiveCases
+                <div class="order">
+                  <div class="active-cases-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="active-cases-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                Deaths_1M_pop
+                <div class="order">
+                  <div class="deaths-1m-pop-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="deaths-1m-pop-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                FirstCase
+                <div class="order">
+                  <div class="first-case-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="first-case-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                Serious_Critical
+                <div class="order">
+                  <div class="serious-critical-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="serious-critical-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                TotCases_1M_Pop
+                <div class="order">
+                  <div class="tot-cases-1m-pop-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="tot-cases-1m-pop-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                DeathsPercent
+                <div class="order">
+                  <div class="deaths-percent-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="deaths-percent-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+            <th>
+              <div>
+                CasesPercent
+                <div class="order">
+                  <div class="cases-percent-up"><i class="fas fa-sort-up"></i></div>
+                  <div class="cases-percent-down"><i class="fas fa-sort-down"></i></div>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+        <tfoot></tfoot>
+      </table>
+    </main>
+  </body>
+</html>

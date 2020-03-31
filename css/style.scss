@@ -1,0 +1,57 @@
+@import './variables';
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 90%;
+}
+table,
+th,
+td {
+  font-family: 'Bitter', sans-serif;
+}
+
+th div {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  padding: 0.1rem 0.5rem;
+  .order i {
+    cursor: pointer;
+  }
+}
+
+td {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff;
+}
+tr:nth-child(even) {
+  background-color: #ddd;
+}
