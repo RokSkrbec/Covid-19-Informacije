@@ -15,8 +15,14 @@ nav {
   justify-content: center;
   padding: 2rem 0;
   h1 {
-    font-size: 3rem;
+    font-size: 6rem;
     font-family: 'Bitter', sans-serif;
+    line-height: 6rem;
+    margin-left: 2rem;
+    color: $primaryColor;
+  }
+  img {
+    height: 6rem;
   }
 }
 
@@ -72,4 +78,8 @@ table tbody tr:nth-child(odd):hover td {
 
 table tbody tr:nth-child(even):hover td {
   background-color: darken($secondaryColor, 10%);
+}
+
+.column-hover {
+  color: red;
 }

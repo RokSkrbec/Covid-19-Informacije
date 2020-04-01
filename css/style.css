@@ -20,8 +20,15 @@ nav {
 }
 
 nav h1 {
-  font-size: 3rem;
+  font-size: 6rem;
   font-family: 'Bitter', sans-serif;
+  line-height: 6rem;
+  margin-left: 2rem;
+  color: #cbbbda;
+}
+
+nav img {
+  height: 6rem;
 }
 
 main {
@@ -88,5 +95,9 @@ table tbody tr:nth-child(odd):hover td {
 
 table tbody tr:nth-child(even):hover td {
   background-color: #d5d5d5;
+}
+
+.column-hover {
+  color: red;
 }
 /*# sourceMappingURL=style.css.map */
