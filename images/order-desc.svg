@@ -1,3 +1,9 @@
-<svg width="25" height="21" viewBox="0 0 25 21" fill="purple" stroke="purple" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.329148 3.47212C-0.584852 1.94912 0.512149 0.00011578 2.29615 0.00011578L21.7101 0.00011578C23.4942 0.00011578 24.5912 1.94912 23.6772 3.47212L13.9681 19.6521C13.0771 21.1351 10.9271 21.1321 10.0381 19.6521L0.329148 3.47212Z" fill="black"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 21" width="25" height="21">
+	<defs>
+		<image width="24" height="21" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAVAQMAAABmJ7xlAAAAAXNSR0IB2cksfwAAAAZQTFRFwKbYAAAAqAhcOwAAAAJ0Uk5T/wDltzBKAAAAMklEQVR4nGNgwAIaGBgZDjAwg/EDBnYw/sDAz/CDQR6M/zDYg/E/hnqG/zDYCMWH/wMAHv0WsXeY4WEAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Background" href="#img1" x="0" y="0" />
 </svg>
