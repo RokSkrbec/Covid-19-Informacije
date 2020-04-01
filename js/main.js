@@ -20,7 +20,7 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
         DeathsPercent: data.reports[0].table[0][i].Deaths_1M_pop === '' ? '' : parseInt(data.reports[0].table[0][i].Deaths_1M_pop.replace(',', '')) * 0.0001,
         CasesPercent: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')) * 0.0001
       }
-      console.log(data.reports[0].table[0])
+      //console.log(data.reports[0].table[0])
     }
     allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
     showTableData()
@@ -28,187 +28,360 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
 
 //--------------------------- START "order by" event listeners ----------------------------
 
-document.querySelector('.country-up').addEventListener('click', () => {
+let order = 'asc'
+let orderContainer = document.querySelectorAll('.order')
+
+document.querySelector('.header-country').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('Country', 'asc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-country').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('Country', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-country').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('Country', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-document.querySelector('.country-down').addEventListener('click', () => {
+//---------------------------------------
+
+document.querySelector('.header-total-cases').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('Country', 'desc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('TotalCases', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-//-------------------------------------
+//---------------------------------------
 
-document.querySelector('.total-cases-up').addEventListener('click', () => {
+document.querySelector('.header-new-cases').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotalCases', 'asc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-new-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('NewCases', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-new-cases').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('NewCases', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-document.querySelector('.total-cases-down').addEventListener('click', () => {
+//---------------------------------------
+
+document.querySelector('.header-total-deaths').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-deaths').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('TotalDeaths', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-deaths').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('TotalDeaths', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-//-------------------------------------
+//---------------------------------------
 
-document.querySelector('.new-cases-up').addEventListener('click', () => {
+document.querySelector('.header-new-deaths').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('NewCases', 'asc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-new-deaths').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('NewDeaths', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-new-deaths').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('NewDeaths', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-document.querySelector('.new-cases-down').addEventListener('click', () => {
+//---------------------------------------
+
+document.querySelector('.header-total-recovered').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('NewCases', 'desc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-recovered').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('TotalRecovered', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-recovered').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('TotalRecovered', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-//-------------------------------------
+//---------------------------------------
 
-document.querySelector('.total-deaths-up').addEventListener('click', () => {
+document.querySelector('.header-active-cases').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotalDeaths', 'asc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-active-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('ActiveCases', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-active-cases').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('ActiveCases', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-document.querySelector('.total-deaths-down').addEventListener('click', () => {
+//---------------------------------------
+
+document.querySelector('.header-deaths-1m-pop').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotalDeaths', 'desc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-deaths-1m-pop').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('Deaths_1M_pop', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-deaths-1m-pop').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('Deaths_1M_pop', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-//-------------------------------------
+//---------------------------------------
 
-document.querySelector('.new-deaths-up').addEventListener('click', () => {
+document.querySelector('.header-first-case').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('NewDeaths', 'asc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-first-case').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('FirstCase', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-first-case').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('FirstCase', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-document.querySelector('.new-deaths-down').addEventListener('click', () => {
+//---------------------------------------
+
+document.querySelector('.header-serious-critical').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('NewDeaths', 'desc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-serious-critical').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('Serious_Critical', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-serious-critical').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('Serious_Critical', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-//-------------------------------------
+//---------------------------------------
 
-document.querySelector('.total-recovered-up').addEventListener('click', () => {
+document.querySelector('.header-total-cases-1m-pop').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotalRecovered', 'asc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-cases-1m-pop').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('TotCases_1M_pop', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-total-cases-1m-pop').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('TotCases_1M_pop', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-document.querySelector('.total-recovered-down').addEventListener('click', () => {
+//---------------------------------------
+
+document.querySelector('.header-deaths-percent').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotalRecovered', 'desc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-deaths-percent').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('DeathsPercent', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-deaths-percent').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('DeathsPercent', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
 
-//-------------------------------------
+//---------------------------------------
 
-document.querySelector('.active-cases-up').addEventListener('click', () => {
+document.querySelector('.header-cases-percent').addEventListener('click', () => {
   table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('ActiveCases', 'asc'))
-  showTableData()
+  if (order == 'asc') {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-cases-percent').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+    allCountriesCovidData.sort(compareValues('CasesPercent', 'desc'))
+    showTableData()
+    order = 'desc'
+  } else {
+    //document.querySelector('.order-country').innerHTML = ''
+    orderContainer.forEach(order => {
+      order.innerHTML = ''
+    })
+    document.querySelector('.order-cases-percent').innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+    allCountriesCovidData.sort(compareValues('CasesPercent', 'asc'))
+    showTableData()
+    order = 'asc'
+  }
 })
-
-document.querySelector('.active-cases-down').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('ActiveCases', 'desc'))
-  showTableData()
-})
-
-//-------------------------------------
-
-document.querySelector('.deaths-1m-pop-up').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('Deaths_1M_pop', 'asc'))
-  showTableData()
-})
-
-document.querySelector('.deaths-1m-pop-down').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('Deaths_1M_pop', 'desc'))
-  showTableData()
-})
-
-//-------------------------------------
-
-document.querySelector('.first-case-up').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('FirstCase', 'asc'))
-  showTableData()
-})
-
-document.querySelector('.first-case-down').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('FirstCase', 'desc'))
-  showTableData()
-})
-
-//-------------------------------------
-
-document.querySelector('.serious-critical-up').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('Serious_Critical', 'asc'))
-  showTableData()
-})
-
-document.querySelector('.serious-critical-down').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('Serious_Critical', 'desc'))
-  showTableData()
-})
-
-//-------------------------------------
-
-document.querySelector('.tot-cases-1m-pop-up').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotCases_1M_Pop', 'asc'))
-  showTableData()
-})
-
-document.querySelector('.tot-cases-1m-pop-down').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('TotCases_1M_Pop', 'desc'))
-  showTableData()
-})
-
-//-------------------------------------
-
-document.querySelector('.deaths-percent-up').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('DeathsPercent', 'asc'))
-  showTableData()
-})
-
-document.querySelector('.deaths-percent-down').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('DeathsPercent', 'desc'))
-  showTableData()
-})
-
-//-------------------------------------
-
-document.querySelector('.cases-percent-up').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('CasesPercent', 'asc'))
-  showTableData()
-})
-
-document.querySelector('.cases-percent-down').addEventListener('click', () => {
-  table.innerHTML = ''
-  allCountriesCovidData.sort(compareValues('CasesPercent', 'desc'))
-  showTableData()
-})
-//-------------------------------------
 //--------------------------- END "order by" event listeners ----------------------------
+
+/*
+let orderDirInd = document.querySelectorAll('.order')
+let header = document.querySelectorAll('.header')
+
+orderDirInd.forEach((headerOrder, index) => {
+  document.querySelector('.header').addEventListener('click', () => {
+    table.innerHTML = ''
+    if (order == 'asc') {
+      header.forEach((header, index) => {
+        headerOrder.innerHTML = ''
+      })
+      headerOrder.innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+      allCountriesCovidData.sort(compareValues('Country', 'desc'))
+      showTableData()
+      order = 'desc'
+    } else {
+      header.forEach((header, index) => {
+        headerOrder.innerHTML = ''
+      })
+      headerOrder.innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
+      allCountriesCovidData.sort(compareValues('Country', 'asc'))
+      showTableData()
+      order = 'asc'
+    }
+  })
+})
+*/
 
 function showTableData() {
   for (let i = 0; i < allCountriesCovidData.length; i++) {
@@ -218,7 +391,7 @@ function showTableData() {
     CasesPercent = Number(CasesPercent).toFixed(4)
     table.innerHTML += `<tr>
     <td>${i + 1}</td>
-    <td>${allCountriesCovidData[i].Country}</td>
+    <td style="text-align:left; padding-left: 1rem">${allCountriesCovidData[i].Country}</td>
     <td>${allCountriesCovidData[i].TotalCases}</td>
     <td>${allCountriesCovidData[i].NewCases}</td>
     <td>${allCountriesCovidData[i].TotalDeaths}</td>

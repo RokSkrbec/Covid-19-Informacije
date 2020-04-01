@@ -37,6 +37,13 @@ table {
   width: 60%;
   font-family: 'IBM Plex Sans', sans-serif;
   display: table;
+  border-collapse: collapse;
+}
+
+th {
+  cursor: pointer;
+  font-size: 1.4rem;
+  background-color: #f3f2f2;
 }
 
 th div {
@@ -48,33 +55,38 @@ th div {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 2rem;
-  padding: 0.1rem 0.3rem 0.1rem 0.1rem;
+  padding: 0.2rem 0.5rem;
+  text-align: left;
+  line-height: 2rem;
 }
 
-th div .order i {
-  cursor: pointer;
+th:hover {
+  background-color: #dbd7d7;
+}
+
+.order img {
+  width: 1rem;
 }
 
 td {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-align: center;
   height: 4rem;
 }
 
 tr:nth-child(odd) {
-  background-color: #fff;
+  background-color: #cbbbda;
 }
 
 tr:nth-child(even) {
-  background-color: #ddd;
-}
-
-tr:nth-child(odd):hover {
   background-color: #eee;
 }
 
-tr:nth-child(even):hover {
-  background-color: #ccc;
+table tbody tr:nth-child(odd):hover td {
+  background-color: #b29ac8;
+}
+
+table tbody tr:nth-child(even):hover td {
+  background-color: #d5d5d5;
 }
 /*# sourceMappingURL=style.css.map */

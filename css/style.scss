@@ -27,37 +27,49 @@ main {
 
 table {
   width: 60%;
+  //table-layout: fixed;
   font-family: 'IBM Plex Sans', sans-serif;
   display: table;
-  //border-collapse: collapse;
+  border-collapse: collapse;
 }
-th div {
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  font-size: 2rem;
-  padding: 0.1rem 0.3rem 0.1rem 0.1rem;
-  .order i {
-    cursor: pointer;
+th {
+  cursor: pointer;
+  font-size: 1.4rem;
+  background-color: #f3f2f2;
+
+  div {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0.2rem 0.5rem;
+    text-align: left;
+    line-height: 2rem;
   }
 }
-
+th:hover {
+  background-color: darken(#f3f2f2, 10%);
+}
+.order img {
+  width: 1rem;
+}
 td {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-align: center;
   height: 4rem;
 }
 
 tr:nth-child(odd) {
-  background-color: #fff;
-}
-tr:nth-child(even) {
-  background-color: #ddd;
+  background-color: $primaryColor;
 }
 
-tr:nth-child(odd):hover {
-  background-color: #eee;
+tr:nth-child(even) {
+  background-color: $secondaryColor;
 }
-tr:nth-child(even):hover {
-  background-color: #ccc;
+
+table tbody tr:nth-child(odd):hover td {
+  background-color: darken($primaryColor, 10%);
+}
+
+table tbody tr:nth-child(even):hover td {
+  background-color: darken($secondaryColor, 10%);
 }
