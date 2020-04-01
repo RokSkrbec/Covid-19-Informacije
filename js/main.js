@@ -5,6 +5,9 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
   .then(res => res.json())
   .then(data => {
     for (let i = 0; i < data.reports[0].table[0].length - 1; i++) {
+      let firstCaseDateArray = data.reports[0].table[0][i].FirstCase.split(' ')
+      let firstCaseDate = `${firstCaseDateArray[0]} ${firstCaseDateArray[1]}`
+      console.log(firstCaseDate)
       allCountriesCovidData[i] = {
         TotalCases: data.reports[0].table[0][i].TotalCases === '' ? '' : parseInt(data.reports[0].table[0][i].TotalCases.replace(',', '')),
         NewCases: data.reports[0].table[0][i].NewCases === '' ? '' : parseInt(data.reports[0].table[0][i].NewCases.replace('+', '').replace(',', '')),
@@ -13,7 +16,7 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
         TotalRecovered: data.reports[0].table[0][i].TotalRecovered === '' ? '' : parseInt(data.reports[0].table[0][i].TotalRecovered.replace(',', '')),
         ActiveCases: data.reports[0].table[0][i].ActiveCases === '' ? '' : parseInt(data.reports[0].table[0][i].ActiveCases.replace(',', '')),
         Deaths_1M_pop: data.reports[0].table[0][i].Deaths_1M_pop === '' ? '' : parseInt(data.reports[0].table[0][i].Deaths_1M_pop.replace(',', '')),
-        FirstCase: data.reports[0].table[0][i].FirstCase,
+        FirstCase: firstCaseDate,
         Country: data.reports[0].table[0][i].Country,
         Serious_Critical: data.reports[0].table[0][i].Serious_Critical === '' ? '' : parseInt(data.reports[0].table[0][i].Serious_Critical.replace(',', '')),
         TotCases_1M_Pop: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')),
