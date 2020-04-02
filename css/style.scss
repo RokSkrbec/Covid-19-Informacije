@@ -130,3 +130,16 @@ main {
   font-family: 'IBM Plex Sans', sans-serif;
   color: $primaryColor;
 }
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@media all and(min-width: 1360px) {
+  main {
+    justify-content: center;
+  }
+}
