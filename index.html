@@ -14,101 +14,81 @@
       <img src="images/logo.svg" alt="logo" />
       <h1>How fucked are we?</h1>
     </nav>
+    <section class="world-report">
+      <div class="total">      
+        <div class="cases">Total cases: </div>
+        <div class="deaths">Deaths: </div>
+        <div class="recovered">Recovered: </div>
+      </div>
+      <div class="active-cases">
+        <div class="curently-infected-patients">Infected: </div>
+        <div class="in-mid-condition">Mid condition: </div>
+        <div class="critical-states">Critical condition: </div>
+      </div>
+      <div class="closed-cases">
+        <div class="closed-recovered">Recovered: </div>
+        <div class="closed-deaths">Deaths: </div>
+      </div>
+    </section>
     <main>
-      <div style="overflow-x: scroll;">
-        <table id="table">
-          <colgroup>
-            <col class="column-hover" span="14" />
-          </colgroup>
-          <thead>
-            <tr>
-              <th class="header" style="cursor: initial;">
-                #
-              </th>
-              <th>
-                <div class="header header-country">
-                  Country
-                  <div class="order order-country"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-total-cases">
-                  Total <br />Cases
-                  <div class="order order-total-cases"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-new-cases">
-                  New <br />Cases
-                  <div class="order order-new-cases"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-total-deaths">
-                  Total <br />Deaths
-                  <div class="order order-total-deaths"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-new-deaths">
-                  New<br />Deaths
-                  <div class="order order-new-deaths"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-total-recovered">
-                  Total<br />Recovered
-                  <div class="order order-total-recovered"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-active-cases">
-                  Active<br />Cases
-                  <div class="order order-active-cases"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-deaths-1m-pop">
-                  Deaths <br />_1M_pop
-                  <div class="order order-deaths-1m-pop"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-first-case">
-                  <span class="no-wrap">First Case</span>
-                  <div class="order order-first-case"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-serious-critical">
-                  Serious<br />Critical
-                  <div class="order order-serious-critical"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-total-cases-1m-pop">
-                  TotCases<br />1M_Pop
-                  <div class="order order-total-cases-1m-pop"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-deaths-percent">
-                  Deaths<br />Percent
-                  <div class="order order-deaths-percent"></div>
-                </div>
-              </th>
-              <th>
-                <div class="header header-cases-percent">
-                  Cases<br />Percent
-                  <div class="order order-cases-percent"></div>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody id="table-body"></tbody>
-          <tfoot></tfoot>
-        </table>
+      <div class="table">
+        <div class="header-container">
+          <div class="header-row">
+          <button class="header header-number">#</button>
+          <button class="header header-country" onclick="orderByColumn('.order-country','Country')">
+            Country
+            <div class="order order-country"></div>
+          </button>
+          <button class="header header-total-cases" onclick="orderByColumn('.order-total-cases','TotalCases')">
+            Total Cases
+            <div class="order order-total-cases"></div>
+          </button>
+          <button class="header header-new-cases" onclick="orderByColumn('.order-new-cases','NewCases')">
+            New <br />Cases
+            <div class="order order-new-cases"></div>
+          </button>
+          <button class="header header-total-deaths" onclick="orderByColumn('.order-total-deaths','TotalDeaths')">
+            Total <br />Deaths
+            <div class="order order-total-deaths"></div>
+          </button>
+          <button class="header header-new-deaths" onclick="orderByColumn('.order-new-deaths','NewDeaths')">
+            New<br />Deaths
+            <div class="order order-new-deaths"></div>
+          </button>
+          <button class="header header-total-recovered" onclick="orderByColumn('.order-total-recovered','TotalRecovered')">
+            Total<br />Recovered
+            <div class="order order-total-recovered"></div>
+          </button>
+          <button class="header header-active-cases" onclick="orderByColumn('.order-active-cases','ActiveCases')">
+            Active<br />Cases
+            <div class="order order-active-cases"></div>
+          </button>
+          <button class="header header-deaths-1m-pop" onclick="orderByColumn('.order-deaths-1m-pop','Deaths_1M_pop')">
+            Deaths <br />_1M_pop
+            <div class="order order-deaths-1m-pop"></div>
+          </button>
+          <button class="header header-serious-critical" onclick="orderByColumn('.order-serious-critical','Serious_Critical')">
+            Serious<br />Critical
+            <div class="order order-serious-critical"></div>
+          </button>
+          <button class="header header-total-cases-1m-pop" onclick="orderByColumn('.order-total-cases-1m-pop','TotalCases_1M_Pop')">
+            TotCases<br />1M_Pop
+            <div class="order order-total-cases-1m-pop"></div>
+          </button>
+          <button class="header header-deaths-percent" onclick="orderByColumn('.order-deaths-percent','DeathsPercent')">
+            Deaths<br />Percent
+            <div class="order order-deaths-percent"></div>
+          </button>
+          <button class="header header-cases-percent" onclick="orderByColumn('.order-cases-percent','CasesPercent')">
+            Cases<br />Percent
+            <div class="order order-cases-percent"></div>
+          </button>
+        </div>
+        </div>
+        <div class="data-container"></div>
       </div>
     </main>
+    <div class="error-message"></div>
+    <footer><p>&copy; 112 Dogodki 2020</p><p><a href="#">Na vrh <i class="fas fa-arrow-up"></i></p></footer>
   </body>
 </html>

@@ -13,6 +13,7 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -31,86 +32,161 @@ nav img {
   height: 6rem;
 }
 
+.world-report {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.total,
+.active-cases,
+.closed-cases {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  border-bottom: 1px solid #c0a6d8;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'IBM Plex Sans', sans-serif;
+  border: 1px solid #c0a6d8;
+  margin: 0 2rem;
+}
+
+.table .header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.table .header-container .header-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.table .header-container .header {
+  min-width: 10rem;
+  max-width: 10rem;
+  height: 4rem;
+  font-size: 1.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  border: 1px solid #c0a6d8;
+  background-color: #fff;
+}
+
+.table .header-container .header .order {
+  padding-left: 1rem;
+}
+
+.table .header-container .header .order img {
+  width: 1rem;
+}
+
+.table .data-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.table .data-container .data-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.table .data-container .data-row .cell {
+  min-width: 10rem;
+  max-width: 10rem;
+  height: 4rem;
+  font-size: 1.3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-table,
-th,
-td {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
   border: 1px solid #c0a6d8;
 }
 
-table {
-  width: 60%;
-  font-family: 'IBM Plex Sans', sans-serif;
-  display: table;
-  border-collapse: collapse;
-}
-
-th {
-  cursor: pointer;
-  font-size: 1.4rem;
-  background-color: #f3f2f2;
-  width: 9rem;
-}
-
-th div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 0.2rem 0.5rem;
-  text-align: left;
-  line-height: 2rem;
-}
-
-th:hover {
-  background-color: #dbd7d7;
-}
-
-.order img {
-  width: 1rem;
-}
-
-td {
-  font-size: 1.5rem;
-  text-align: center;
-  height: 4rem;
-  padding: 0 1rem;
-  width: 9rem;
-}
-
-tr:nth-child(odd) {
+.data-row:nth-child(odd) {
   background-color: #cbbbda;
 }
 
-tr:nth-child(even) {
+.data-row:nth-child(even) {
   background-color: #eee;
 }
 
-table tbody tr:nth-child(odd):hover td {
-  background-color: #b29ac8;
-}
-
-table tbody tr:nth-child(even):hover td {
-  background-color: #d5d5d5;
-}
-
-.column-hover {
-  color: red;
-}
-
-.no-wrap {
-  white-space: nowrap;
+.error-message {
+  width: 100%;
+  font-size: 3rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #cbbbda;
 }
 /*# sourceMappingURL=style.css.map */
