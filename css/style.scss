@@ -108,6 +108,8 @@ main {
   .header-container {
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0px;
     .header-row {
       display: flex;
       flex-direction: row;
