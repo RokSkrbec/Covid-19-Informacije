@@ -17,19 +17,19 @@ nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 2rem 0;
+  text-align: center;
+  padding: 2rem;
 }
 
 nav h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-family: 'Bitter', sans-serif;
-  line-height: 3rem;
-  margin-left: 1rem;
-  color: #cbbbda;
+  line-height: 4rem;
+  color: #8e79be;
 }
 
 nav img {
-  height: 3rem;
+  height: 4rem;
 }
 
 .world-report {
@@ -44,10 +44,9 @@ nav img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 2rem;
 }
 
 .total,
@@ -60,11 +59,18 @@ nav img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 80%;
-  border-bottom: 1px solid #c0a6d8;
+  margin: 1rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: left;
+}
+
+.total *,
+.active-cases *,
+.closed-cases * {
+  margin: 0.2rem;
+  color: #a888cc;
 }
 
 main {
@@ -81,8 +87,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: 'Noto Sans', sans-serif;
-  border: 1px solid #c0a6d8;
+  border: 1px solid #8e79be;
   margin: 2rem;
 }
 
@@ -123,8 +128,10 @@ main {
   text-align: left;
   padding: 0 0.5rem;
   cursor: pointer;
-  border: 1px solid #c0a6d8;
+  border: 1px solid #8e79be;
   background-color: #fff;
+  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .table .header-container .header .order {
@@ -171,11 +178,13 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  border: 1px solid #c0a6d8;
+  border: 1px solid #8e79be;
+  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .data-row:nth-child(odd) {
-  background-color: #cbbbda;
+  background-color: #a888cc;
 }
 
 .data-row:nth-child(even) {
@@ -188,7 +197,7 @@ main {
   margin-top: 2rem;
   text-align: center;
   font-family: 'IBM Plex Sans', sans-serif;
-  color: #cbbbda;
+  color: #a888cc;
 }
 
 footer {
@@ -202,6 +211,14 @@ footer {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  font-size: 1.3rem;
+  font-family: 'Noto Sans', sans-serif;
+  color: #a888cc;
+}
+
+footer a {
+  text-decoration: none;
+  color: #8e79be;
 }
 
 @media all and (min-width: 1360px) {
