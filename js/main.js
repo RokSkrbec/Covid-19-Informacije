@@ -112,10 +112,17 @@ function compareValues(key, order = 'asc') {
   }
 }
 
+let IsTouchDevice = navigator.maxTouchPoints || 'ontouchstart' in document.documentElement
+let searchBarEventListener = ''
+if (IsTouchDevice) {
+  searchBarEventListener = 'change'
+} else {
+  searchBarEventListener = 'keyup'
+}
+
 const searchBar = document.forms['search'].querySelector('input')
 
-searchBar.addEventListener('change', function(e) {
-  console.log('test')
+searchBar.addEventListener(searchBarEventListener, function(e) {
   dataContainer.innerHTML = ''
   const term = e.target.value.toLowerCase()
   for (let i = 0; i < allCountriesCovidData.length; i++) {
@@ -143,3 +150,4 @@ searchBar.addEventListener('change', function(e) {
     }
   }
 })
+//-----------------------------
