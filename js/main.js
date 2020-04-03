@@ -7,7 +7,6 @@ const localization = 'en-GB'
 fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports', {})
   .then(res => res.json())
   .then(data => {
-    console.log(document.querySelector('.deaths'))
     document.querySelector('.cases-number').innerHTML = data.reports[0].cases.toLocaleString(localization)
     document.querySelector('.deaths-number').innerHTML = data.reports[0].deaths.toLocaleString(localization)
     document.querySelector('.recovered-number').innerHTML = data.reports[0].recovered.toLocaleString(localization)
@@ -112,3 +111,36 @@ function compareValues(key, order = 'asc') {
     return order === 'desc' ? comparison * -1 : comparison
   }
 }
+
+const searchBar = document.forms['search'].querySelector('input')
+
+searchBar.addEventListener('keyup', function(e) {
+  dataContainer.innerHTML = ''
+  const term = e.target.value.toLowerCase()
+  for (let i = 0; i < allCountriesCovidData.length; i++) {
+    if (allCountriesCovidData[i].Country.toLowerCase().indexOf(term) != -1) {
+      //console.log(allCountriesCovidData[i].Country)
+      DeathsPercent = allCountriesCovidData[i].DeathsPercent
+      DeathsPercent = Number(DeathsPercent).toFixed(4)
+      CasesPercent = allCountriesCovidData[i].CasesPercent
+      CasesPercent = Number(CasesPercent).toFixed(4)
+      dataContainer.innerHTML += `<div class="data-row">
+    <div class="cell">${i + 1}</div>
+    <div class="cell">${allCountriesCovidData[i].Country}</div>
+    <div class="cell">${allCountriesCovidData[i].TotalCases.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].NewCases.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].TotalDeaths.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].NewDeaths.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].TotalRecovered.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].ActiveCases.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].Deaths_1M_pop.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].Serious_Critical.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].TotCases_1M_Pop.toLocaleString(localization)}</div>
+    <div class="cell">${DeathsPercent}</div>
+    <div class="cell">${CasesPercent}</div>
+  </div>
+  `
+    }
+  }
+  //console.log(term)
+})

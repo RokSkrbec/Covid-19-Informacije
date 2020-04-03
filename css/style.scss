@@ -20,7 +20,8 @@ nav {
   width: 100%;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
   h1 {
     font-size: 4rem;
     font-family: 'Bitter', sans-serif;
@@ -38,12 +39,12 @@ nav {
   flex-direction: column;
   //justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
   font-weight: bold;
   a {
     font-family: 'Noto Sans', sans-serif;
     text-decoration: underline;
     color: $terciaryColor;
+    font-size: 1.5rem;
   }
 }
 
@@ -52,20 +53,18 @@ nav {
 .closed-cases {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
-  font-family: 'Roboto Condensed', sans-serif;
+  margin-top: 2rem;
+  font-family: 'Noto Sans', sans-serif;
   padding: 0.5rem;
   font-weight: light;
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
+  font-size: 1.7rem;
   text-align: center;
   color: $primaryColor;
   .number {
     font-family: 'Noto Sans', sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
     color: #888;
     font-weight: bold;
-    letter-spacing: 0;
   }
 }
 

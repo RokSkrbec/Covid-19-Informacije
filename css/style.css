@@ -23,7 +23,8 @@ nav {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 nav h1 {
@@ -49,7 +50,6 @@ nav img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -57,6 +57,7 @@ nav img {
   font-family: 'Noto Sans', sans-serif;
   text-decoration: underline;
   color: #987cb8;
+  font-size: 1.5rem;
 }
 
 .total,
@@ -69,12 +70,11 @@ nav img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 1rem;
-  font-family: 'Roboto Condensed', sans-serif;
+  margin-top: 2rem;
+  font-family: 'Noto Sans', sans-serif;
   padding: 0.5rem;
   font-weight: light;
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
+  font-size: 1.7rem;
   text-align: center;
   color: #a888cc;
 }
@@ -83,10 +83,9 @@ nav img {
 .active-cases .number,
 .closed-cases .number {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #888;
   font-weight: bold;
-  letter-spacing: 0;
 }
 
 main {
