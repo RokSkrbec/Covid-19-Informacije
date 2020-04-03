@@ -2,18 +2,20 @@ const allCountriesCovidData = []
 const dataContainer = document.querySelector('.data-container')
 const errorMessageContainer = document.querySelector('.error-message')
 
+const localization = 'en-GB'
+
 fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports', {})
   .then(res => res.json())
   .then(data => {
     console.log(document.querySelector('.deaths'))
-    document.querySelector('.cases').innerHTML += data.reports[0].cases
-    document.querySelector('.deaths').innerHTML += data.reports[0].deaths
-    document.querySelector('.recovered').innerHTML += data.reports[0].recovered
-    document.querySelector('.curently-infected-patients').innerHTML += data.reports[0].active_cases[0].currently_infected_patients
-    document.querySelector('.in-mid-condition').innerHTML += data.reports[0].active_cases[0].inMidCondition
-    document.querySelector('.critical-states').innerHTML += data.reports[0].active_cases[0].criticalStates
-    document.querySelector('.closed-recovered').innerHTML += data.reports[0].closed_cases[0].recovered
-    document.querySelector('.closed-deaths').innerHTML += data.reports[0].closed_cases[0].deaths
+    document.querySelector('.cases').innerHTML += data.reports[0].cases.toLocaleString(localization)
+    document.querySelector('.deaths').innerHTML += data.reports[0].deaths.toLocaleString(localization)
+    document.querySelector('.recovered').innerHTML += data.reports[0].recovered.toLocaleString(localization)
+    document.querySelector('.curently-infected-patients').innerHTML += data.reports[0].active_cases[0].currently_infected_patients.toLocaleString(localization)
+    document.querySelector('.in-mid-condition').innerHTML += data.reports[0].active_cases[0].inMidCondition.toLocaleString(localization)
+    document.querySelector('.critical-states').innerHTML += data.reports[0].active_cases[0].criticalStates.toLocaleString(localization)
+    document.querySelector('.closed-recovered').innerHTML += data.reports[0].closed_cases[0].recovered.toLocaleString(localization)
+    document.querySelector('.closed-deaths').innerHTML += data.reports[0].closed_cases[0].deaths.toLocaleString(localization)
     for (let i = 0; i < data.reports[0].table[0].length - 1; i++) {
       allCountriesCovidData[i] = {
         TotalCases: data.reports[0].table[0][i].TotalCases === '' ? '' : parseInt(data.reports[0].table[0][i].TotalCases.replace(',', '')),
@@ -31,6 +33,7 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports', {})
       }
     }
     allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
+    document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
     showTableData()
   })
   .catch(err => {
@@ -74,15 +77,15 @@ function showTableData() {
     dataContainer.innerHTML += `<div class="data-row">
     <div class="cell">${i + 1}</div>
     <div class="cell">${allCountriesCovidData[i].Country}</div>
-    <div class="cell">${allCountriesCovidData[i].TotalCases}</div>
-    <div class="cell">${allCountriesCovidData[i].NewCases}</div>
-    <div class="cell">${allCountriesCovidData[i].TotalDeaths}</div>
-    <div class="cell">${allCountriesCovidData[i].NewDeaths}</div>
-    <div class="cell">${allCountriesCovidData[i].TotalRecovered}</div>
-    <div class="cell">${allCountriesCovidData[i].ActiveCases}</div>
-    <div class="cell">${allCountriesCovidData[i].Deaths_1M_pop}</div>
-    <div class="cell">${allCountriesCovidData[i].Serious_Critical}</div>
-    <div class="cell">${allCountriesCovidData[i].TotCases_1M_Pop}</div>
+    <div class="cell">${allCountriesCovidData[i].TotalCases.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].NewCases.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].TotalDeaths.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].NewDeaths.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].TotalRecovered.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].ActiveCases.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].Deaths_1M_pop.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].Serious_Critical.toLocaleString(localization)}</div>
+    <div class="cell">${allCountriesCovidData[i].TotCases_1M_Pop.toLocaleString(localization)}</div>
     <div class="cell">${DeathsPercent}</div>
     <div class="cell">${CasesPercent}</div>
   </div>
