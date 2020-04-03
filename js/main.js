@@ -32,12 +32,12 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
     allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
     document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
     showTableData()
-    fetch('http://ip-api.com/json/')
+    fetch('https://ipapi.co/json/')
       .then(res => res.json())
       .then(data => {
-        console.log(data.country)
+        console.log(data)
         for (let i = 0; i < allCountriesCovidData.length; i++) {
-          if (allCountriesCovidData[i].Country.toLowerCase() === data.country.toLowerCase()) {
+          if (allCountriesCovidData[i].Country.toLowerCase() === data.country_name.toLowerCase()) {
             DeathsPercent = allCountriesCovidData[i].DeathsPercent
             DeathsPercent = Number(DeathsPercent).toFixed(4)
             CasesPercent = allCountriesCovidData[i].CasesPercent
