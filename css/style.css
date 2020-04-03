@@ -93,13 +93,24 @@ nav img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem 0;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.2rem;
+  color: #987cb8;
 }
 
 .search input {
+  margin-top: 0.5rem;
   text-align: center;
   background-color: #f7f7f7;
   border: 2px solid #a888cc;
@@ -280,6 +291,18 @@ footer a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  .table .header-container .header-row .header {
+    min-width: 10rem;
+    max-width: 10rem;
+    height: 4rem;
+    font-size: 1.3rem;
+  }
+  .table .data-container .data-row .cell {
+    min-width: 10rem;
+    max-width: 10rem;
+    height: 4rem;
+    font-size: 1.3rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
