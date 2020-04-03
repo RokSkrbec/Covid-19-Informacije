@@ -4,17 +4,15 @@ const errorMessageContainer = document.querySelector('.error-message')
 
 const localization = 'en-GB'
 
-fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports', {})
+fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
   .then(res => res.json())
   .then(data => {
-    document.querySelector('.cases-number').innerHTML = data.reports[0].cases.toLocaleString(localization)
-    document.querySelector('.deaths-number').innerHTML = data.reports[0].deaths.toLocaleString(localization)
-    document.querySelector('.recovered-number').innerHTML = data.reports[0].recovered.toLocaleString(localization)
-    document.querySelector('.curently-infected-patients-number').innerHTML = data.reports[0].active_cases[0].currently_infected_patients.toLocaleString(localization)
-    document.querySelector('.in-mid-condition-number').innerHTML = data.reports[0].active_cases[0].inMidCondition.toLocaleString(localization)
-    document.querySelector('.critical-states-number').innerHTML = data.reports[0].active_cases[0].criticalStates.toLocaleString(localization)
-    document.querySelector('.closed-recovered-number').innerHTML = data.reports[0].closed_cases[0].recovered.toLocaleString(localization)
-    document.querySelector('.closed-deaths-number').innerHTML = data.reports[0].closed_cases[0].deaths.toLocaleString(localization)
+    document.querySelector('.world-cases-number').innerHTML = data.reports[0].cases.toLocaleString(localization)
+    document.querySelector('.world-deaths-number').innerHTML = data.reports[0].deaths.toLocaleString(localization)
+    document.querySelector('.world-recovered-number').innerHTML = data.reports[0].recovered.toLocaleString(localization)
+    document.querySelector('.world-curently-infected-patients-number').innerHTML = data.reports[0].active_cases[0].currently_infected_patients.toLocaleString(localization)
+    document.querySelector('.world-in-mid-condition-number').innerHTML = data.reports[0].active_cases[0].inMidCondition.toLocaleString(localization)
+    document.querySelector('.world-critical-states-number').innerHTML = data.reports[0].active_cases[0].criticalStates.toLocaleString(localization)
     for (let i = 0; i < data.reports[0].table[0].length - 1; i++) {
       allCountriesCovidData[i] = {
         TotalCases: data.reports[0].table[0][i].TotalCases === '' ? '' : parseInt(data.reports[0].table[0][i].TotalCases.replace(',', '')),
@@ -34,11 +32,35 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports', {})
     allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
     document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
     showTableData()
+    fetch('http://ip-api.com/json/')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.country)
+        for (let i = 0; i < allCountriesCovidData.length; i++) {
+          if (allCountriesCovidData[i].Country.toLowerCase() === data.country.toLowerCase()) {
+            DeathsPercent = allCountriesCovidData[i].DeathsPercent
+            DeathsPercent = Number(DeathsPercent).toFixed(4)
+            CasesPercent = allCountriesCovidData[i].CasesPercent
+            CasesPercent = Number(CasesPercent).toFixed(4)
+            document.querySelector('.country').innerHTML = allCountriesCovidData[i].Country
+            document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases
+            document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths
+            document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered
+
+            console.log(allCountriesCovidData[i])
+          }
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
   })
   .catch(err => {
     console.log(err)
     errorMessageContainer.innerHTML = 'Napaka pri nalaganju podatkov, poskusite kasneje.'
   })
+
+//--------------------------------------- order by functionality--------------------------
 
 let order = 'asc'
 let orderContainer = document.querySelectorAll('.order')
@@ -67,6 +89,8 @@ function orderByColumn(orderClass, orderColumn) {
   }
 }
 
+//----------------------------------- draw table function ------------------------------
+
 function showTableData() {
   for (let i = 0; i < allCountriesCovidData.length; i++) {
     DeathsPercent = allCountriesCovidData[i].DeathsPercent
@@ -92,6 +116,8 @@ function showTableData() {
   }
 }
 
+//-------------------------- sorting function -------------------------------
+
 function compareValues(key, order = 'asc') {
   return function innerSort(a, b) {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -111,6 +137,8 @@ function compareValues(key, order = 'asc') {
     return order === 'desc' ? comparison * -1 : comparison
   }
 }
+
+//--------------------- search bar functionality -----------------------------------
 
 let IsTouchDevice = navigator.maxTouchPoints || 'ontouchstart' in document.documentElement
 let searchBarEventListener = ''
@@ -150,4 +178,5 @@ searchBar.addEventListener(searchBarEventListener, function(e) {
     }
   }
 })
-//-----------------------------
+
+//----------------------------- location functionality --------------------------

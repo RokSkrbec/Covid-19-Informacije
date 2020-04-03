@@ -60,9 +60,9 @@ nav img {
   font-size: 1.5rem;
 }
 
-.total,
-.active-cases,
-.closed-cases {
+.world-total,
+.world-active-cases,
+.world-closed-cases {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,9 +79,57 @@ nav img {
   color: #a888cc;
 }
 
-.total .number,
-.active-cases .number,
-.closed-cases .number {
+.world-total .world-number,
+.world-active-cases .world-number,
+.world-closed-cases .world-number {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 2rem;
+  color: #888;
+  font-weight: bold;
+}
+
+.country-report {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: 2rem;
+}
+
+.country-report .country-cases,
+.country-report .country-deaths,
+.country-report .country-recovered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: light;
+  font-size: 1.7rem;
+  text-align: center;
+  color: #a888cc;
+}
+
+.country-report .country {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 2rem;
+  color: #987cb8;
+  font-weight: bold;
+}
+
+.country-report .country-number {
   font-family: 'Noto Sans', sans-serif;
   font-size: 2rem;
   color: #888;
@@ -153,6 +201,8 @@ main {
           flex-direction: column;
   border: 1px solid #987cb8;
   margin: 2rem;
+  -ms-scroll-snap-type: mandatory;
+      scroll-snap-type: mandatory;
 }
 
 .table .header-container {
@@ -166,6 +216,8 @@ main {
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
+  -ms-scroll-snap-type: mandatory;
+      scroll-snap-type: mandatory;
 }
 
 .table .header-container .header-row {
@@ -176,6 +228,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  scroll-snap-align: start;
 }
 
 .table .header-container .header {
@@ -217,6 +270,8 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-scroll-snap-type: mandatory;
+      scroll-snap-type: mandatory;
 }
 
 .table .data-container .data-row {
@@ -228,6 +283,7 @@ main {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
+  scroll-snap-align: start;
 }
 
 .table .data-container .data-row .cell {

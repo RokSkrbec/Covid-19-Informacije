@@ -48,9 +48,9 @@ nav {
   }
 }
 
-.total,
-.active-cases,
-.closed-cases {
+.world-total,
+.world-active-cases,
+.world-closed-cases {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
@@ -60,7 +60,43 @@ nav {
   font-size: 1.7rem;
   text-align: center;
   color: $primaryColor;
-  .number {
+  .world-number {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2rem;
+    color: #888;
+    font-weight: bold;
+  }
+}
+
+.country-report {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: 2rem;
+
+  .country-cases,
+  .country-deaths,
+  .country-recovered {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: light;
+    font-size: 1.7rem;
+    text-align: center;
+    color: $primaryColor;
+  }
+
+  .country {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2rem;
+    color: $terciaryColor;
+    font-weight: bold;
+  }
+  .country-number {
     font-family: 'Noto Sans', sans-serif;
     font-size: 2rem;
     color: #888;
@@ -104,15 +140,18 @@ main {
   flex-direction: column;
   border: 1px solid $terciaryColor;
   margin: 2rem;
+  scroll-snap-type: mandatory;
 
   .header-container {
     display: flex;
     flex-direction: column;
     position: sticky;
     top: 0px;
+    scroll-snap-type: mandatory;
     .header-row {
       display: flex;
       flex-direction: row;
+      scroll-snap-align: start;
     }
 
     .header {
@@ -143,11 +182,13 @@ main {
   .data-container {
     display: flex;
     flex-direction: column;
+    scroll-snap-type: mandatory;
 
     .data-row {
       display: flex;
       flex-direction: row;
       width: 100%;
+      scroll-snap-align: start;
 
       .cell {
         min-width: 8rem;
