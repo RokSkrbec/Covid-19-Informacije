@@ -88,6 +88,44 @@ nav img {
   font-weight: bold;
 }
 
+.search {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2rem;
+}
+
+.search input {
+  text-align: center;
+  background-color: #f7f7f7;
+  border: 2px solid #a888cc;
+  color: #987cb8;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 0.3rem;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.search ::-webkit-input-placeholder {
+  color: #987cb8;
+}
+
+.search :-ms-input-placeholder {
+  color: #987cb8;
+}
+
+.search ::-ms-input-placeholder {
+  color: #987cb8;
+}
+
+.search ::placeholder {
+  color: #987cb8;
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;

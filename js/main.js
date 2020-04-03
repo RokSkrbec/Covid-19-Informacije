@@ -114,12 +114,12 @@ function compareValues(key, order = 'asc') {
 
 const searchBar = document.forms['search'].querySelector('input')
 
-searchBar.addEventListener('keyup', function(e) {
+searchBar.addEventListener('change', function(e) {
+  console.log('test')
   dataContainer.innerHTML = ''
   const term = e.target.value.toLowerCase()
   for (let i = 0; i < allCountriesCovidData.length; i++) {
     if (allCountriesCovidData[i].Country.toLowerCase().indexOf(term) != -1) {
-      //console.log(allCountriesCovidData[i].Country)
       DeathsPercent = allCountriesCovidData[i].DeathsPercent
       DeathsPercent = Number(DeathsPercent).toFixed(4)
       CasesPercent = allCountriesCovidData[i].CasesPercent
@@ -142,5 +142,4 @@ searchBar.addEventListener('keyup', function(e) {
   `
     }
   }
-  //console.log(term)
 })

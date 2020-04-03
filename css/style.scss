@@ -68,6 +68,26 @@ nav {
   }
 }
 
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  input {
+    text-align: center;
+    background-color: $backgroundColor;
+    border: 2px solid $primaryColor;
+    color: $terciaryColor;
+    outline: none;
+    font-size: 1.5rem;
+    border-radius: 0.3rem;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  ::placeholder {
+    color: $terciaryColor;
+  }
+}
+
 main {
   display: flex;
   //justify-content: center;
