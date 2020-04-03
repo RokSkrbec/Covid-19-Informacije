@@ -8,14 +8,14 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports', {})
   .then(res => res.json())
   .then(data => {
     console.log(document.querySelector('.deaths'))
-    document.querySelector('.cases').innerHTML += data.reports[0].cases.toLocaleString(localization)
-    document.querySelector('.deaths').innerHTML += data.reports[0].deaths.toLocaleString(localization)
-    document.querySelector('.recovered').innerHTML += data.reports[0].recovered.toLocaleString(localization)
-    document.querySelector('.curently-infected-patients').innerHTML += data.reports[0].active_cases[0].currently_infected_patients.toLocaleString(localization)
-    document.querySelector('.in-mid-condition').innerHTML += data.reports[0].active_cases[0].inMidCondition.toLocaleString(localization)
-    document.querySelector('.critical-states').innerHTML += data.reports[0].active_cases[0].criticalStates.toLocaleString(localization)
-    document.querySelector('.closed-recovered').innerHTML += data.reports[0].closed_cases[0].recovered.toLocaleString(localization)
-    document.querySelector('.closed-deaths').innerHTML += data.reports[0].closed_cases[0].deaths.toLocaleString(localization)
+    document.querySelector('.cases-number').innerHTML = data.reports[0].cases.toLocaleString(localization)
+    document.querySelector('.deaths-number').innerHTML = data.reports[0].deaths.toLocaleString(localization)
+    document.querySelector('.recovered-number').innerHTML = data.reports[0].recovered.toLocaleString(localization)
+    document.querySelector('.curently-infected-patients-number').innerHTML = data.reports[0].active_cases[0].currently_infected_patients.toLocaleString(localization)
+    document.querySelector('.in-mid-condition-number').innerHTML = data.reports[0].active_cases[0].inMidCondition.toLocaleString(localization)
+    document.querySelector('.critical-states-number').innerHTML = data.reports[0].active_cases[0].criticalStates.toLocaleString(localization)
+    document.querySelector('.closed-recovered-number').innerHTML = data.reports[0].closed_cases[0].recovered.toLocaleString(localization)
+    document.querySelector('.closed-deaths-number').innerHTML = data.reports[0].closed_cases[0].deaths.toLocaleString(localization)
     for (let i = 0; i < data.reports[0].table[0].length - 1; i++) {
       allCountriesCovidData[i] = {
         TotalCases: data.reports[0].table[0][i].TotalCases === '' ? '' : parseInt(data.reports[0].table[0][i].TotalCases.replace(',', '')),

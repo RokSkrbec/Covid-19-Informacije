@@ -1,5 +1,10 @@
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7f7f7;
 }
 
 * {
@@ -25,7 +30,7 @@ nav h1 {
   font-size: 4rem;
   font-family: 'Bitter', sans-serif;
   line-height: 4rem;
-  color: #8e79be;
+  color: #987cb8;
 }
 
 nav img {
@@ -44,9 +49,14 @@ nav img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.world-report a {
+  font-family: 'Noto Sans', sans-serif;
+  text-decoration: underline;
+  color: #987cb8;
 }
 
 .total,
@@ -60,17 +70,23 @@ nav img {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 1rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: left;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding: 0.5rem;
+  font-weight: light;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  color: #a888cc;
 }
 
-.total *,
-.active-cases *,
-.closed-cases * {
-  margin: 0.2rem;
-  color: #a888cc;
+.total .number,
+.active-cases .number,
+.closed-cases .number {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 3rem;
+  color: #888;
+  font-weight: bold;
+  letter-spacing: 0;
 }
 
 main {
@@ -87,7 +103,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid #8e79be;
+  border: 1px solid #987cb8;
   margin: 2rem;
 }
 
@@ -128,8 +144,8 @@ main {
   text-align: left;
   padding: 0 0.5rem;
   cursor: pointer;
-  border: 1px solid #8e79be;
-  background-color: #fff;
+  border: 1px solid #987cb8;
+  background-color: #f7f7f7;
   font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
 }
@@ -178,7 +194,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  border: 1px solid #8e79be;
+  border: 1px solid #987cb8;
   font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
 }
@@ -214,11 +230,12 @@ footer {
   font-size: 1.3rem;
   font-family: 'Noto Sans', sans-serif;
   color: #a888cc;
+  margin-bottom: 2rem;
 }
 
 footer a {
   text-decoration: none;
-  color: #8e79be;
+  color: #987cb8;
 }
 
 @media all and (min-width: 1360px) {

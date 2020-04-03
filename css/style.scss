@@ -2,6 +2,11 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $backgroundColor;
 }
 
 * {
@@ -33,9 +38,13 @@ nav {
   flex-direction: column;
   //justify-content: center;
   align-items: center;
-  font-family: 'Noto Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
+  a {
+    font-family: 'Noto Sans', sans-serif;
+    text-decoration: underline;
+    color: $terciaryColor;
+  }
 }
 
 .total,
@@ -44,11 +53,19 @@ nav {
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  align-items: center;
-  text-align: left;
-  * {
-    margin: 0.2rem;
-    color: $primaryColor;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding: 0.5rem;
+  font-weight: light;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  color: $primaryColor;
+  .number {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 3rem;
+    color: #888;
+    font-weight: bold;
+    letter-spacing: 0;
   }
 }
 
@@ -83,7 +100,7 @@ main {
       padding: 0 0.5rem;
       cursor: pointer;
       border: 1px solid $terciaryColor;
-      background-color: #fff;
+      background-color: $backgroundColor;
       font-weight: bold;
       font-family: 'Noto Sans', sans-serif;
 
@@ -146,6 +163,7 @@ footer {
   font-size: 1.3rem;
   font-family: 'Noto Sans', sans-serif;
   color: $primaryColor;
+  margin-bottom: 2rem;
   a {
     text-decoration: none;
     color: $terciaryColor;

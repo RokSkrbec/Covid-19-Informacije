@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/04a2ad65c9.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Bitter|IBM+Plex+Sans|Concert+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Bitter|IBM+Plex+Sans|Roboto+Condensed&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="css/style.css" />
@@ -16,23 +16,24 @@
       <!--img src="images/logo.svg" alt="logo" /-->
     </nav>
     <section class="world-report">
+      <p><a href="#table">view by country</a></p>
       <div class="total">      
-        <div class="cases">Total cases: </div>
-        <div class="deaths">Deaths: </div>
-        <div class="recovered">Recovered: </div>
+        <div class="cases">Total Coronavirus cases:<div class="number cases-number"></div></div>
+        <div class="deaths">Deaths:<div class="number deaths-number"></div></div>
+        <div class="recovered">Recovered:<div class="number recovered-number"></div></div>
       </div>
       <div class="active-cases">
-        <div class="curently-infected-patients">Infected: </div>
-        <div class="in-mid-condition">Mid condition: </div>
-        <div class="critical-states">Critical condition: </div>
+        <div class="curently-infected-patients">Infected: <div class="number curently-infected-patients-number"></div></div>
+        <div class="in-mid-condition">Mid condition: <div class="number in-mid-condition-number"></div></div>
+        <div class="critical-states">Critical condition: <div class="number critical-states-number"></div></div>
       </div>
       <div class="closed-cases">
-        <div class="closed-recovered">Recovered: </div>
-        <div class="closed-deaths">Deaths: </div>
+        <div class="closed-recovered">Recovered: <div class="number closed-recovered-number"></div></div>
+        <div class="closed-deaths">Deaths: <div class="number closed-deaths-number"></div></div>
       </div>
     </section>
     <main>
-      <div class="table">
+      <div class="table" id="table">
         <div class="header-container">
           <div class="header-row">
           <button class="header header-number">#</button>
