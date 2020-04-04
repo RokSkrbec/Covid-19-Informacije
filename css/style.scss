@@ -74,7 +74,6 @@ nav {
     }
 
     .world-numbers {
-      //padding-left: 2rem;
       font-size: 1.2rem;
       font-family: 'Noto Sans', sans-serif;
     }
@@ -85,6 +84,10 @@ nav {
     width: 60%;
     justify-content: space-evenly;
     margin-top: 1rem;
+
+    .country-labels-inner,
+    .country-numbers-inner {
+    }
   }
 
   .country-name {
@@ -92,6 +95,8 @@ nav {
     color: $primaryColor;
     font-weight: bold;
     font-size: 1.3rem;
+    text-decoration: underline;
+    cursor: pointer;
   }
 
   .country-labels {
@@ -104,9 +109,10 @@ nav {
       display: flex;
       justify-content: space-between;
       font-family: 'Heebo', sans-serif;
-      //width: 50%;
       font-size: 1.2rem;
       text-transform: uppercase;
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
   .country-number {

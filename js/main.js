@@ -180,3 +180,26 @@ searchBar.addEventListener(searchBarEventListener, function (e) {
 })
 
 //----------------------------- location functionality --------------------------
+
+let countryLabelsInner = document.querySelector('.country-labels-inner')
+let countryNumbersInner = document.querySelector('.country-numbers-inner')
+
+document.querySelector('.country-name-label').addEventListener('click', function () {
+  if (countryLabelsInner.style.display === 'block') {
+    countryLabelsInner.style.display = 'none'
+    countryNumbersInner.style.display = 'none'
+  } else {
+    countryLabelsInner.style.display = 'block'
+    countryNumbersInner.style.display = 'block'
+  }
+})
+
+document.querySelector('.country-name').addEventListener('click', function () {
+  if (countryLabelsInner.style.display === 'block') {
+    countryLabelsInner.style.display = 'none'
+    countryNumbersInner.style.display = 'none'
+  } else {
+    countryLabelsInner.style.display = 'block'
+    countryNumbersInner.style.display = 'block'
+  }
+})
