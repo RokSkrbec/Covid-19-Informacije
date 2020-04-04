@@ -99,18 +99,28 @@ nav img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  margin: 2rem 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 60%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 1rem;
 }
 
-.totals .country-report .country-name-label {
+.totals .country-name {
+  font-family: 'Noto Sans', sans-serif;
+  color: #ff893a;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.totals .country-labels {
+  font-size: 1.2rem;
+  font-family: 'Heebo', sans-serif;
+  color: #3a8cff;
+  text-align: right;
+}
+
+.totals .country-labels .country-name-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,32 +132,7 @@ nav img {
   text-transform: uppercase;
 }
 
-.totals .country-report .country-name-label .country-name {
-  font-family: 'Noto Sans', sans-serif;
-  color: #ff893a;
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-.totals .country-report .country-report-inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 60%;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin-top: 1rem;
-}
-
-.totals .country-report .country-report-inner .country-labels {
-  font-size: 1.2rem;
-  font-family: 'Heebo', sans-serif;
-  color: #3a8cff;
-  text-align: right;
-}
-
-.totals .country-report .country-report-inner .country-numbers {
+.totals .country-number {
   font-size: 1.2rem;
   font-family: 'Noto Sans', sans-serif;
 }

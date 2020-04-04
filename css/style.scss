@@ -82,10 +82,23 @@ nav {
 
   .country-report {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 2rem 0;
-    align-items: center;
+    width: 60%;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+  }
+
+  .country-name {
+    font-family: 'Noto Sans', sans-serif;
+    color: $primaryColor;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  .country-labels {
+    font-size: 1.2rem;
+    font-family: 'Heebo', sans-serif;
+    color: $secondaryColor;
+    text-align: right;
 
     .country-name-label {
       display: flex;
@@ -94,33 +107,11 @@ nav {
       //width: 50%;
       font-size: 1.2rem;
       text-transform: uppercase;
-
-      .country-name {
-        font-family: 'Noto Sans', sans-serif;
-        color: $primaryColor;
-        font-weight: bold;
-        font-size: 1.3rem;
-      }
     }
-
-    .country-report-inner {
-      display: flex;
-      width: 60%;
-      justify-content: space-evenly;
-      margin-top: 1rem;
-
-      .country-labels {
-        font-size: 1.2rem;
-        font-family: 'Heebo', sans-serif;
-        color: $secondaryColor;
-        text-align: right;
-      }
-
-      .country-numbers {
-        font-size: 1.2rem;
-        font-family: 'Noto Sans', sans-serif;
-      }
-    }
+  }
+  .country-number {
+    font-size: 1.2rem;
+    font-family: 'Noto Sans', sans-serif;
   }
 }
 
