@@ -24,25 +24,25 @@ nav {
           justify-content: center;
   text-align: center;
   padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
 nav h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: 'Bitter', sans-serif;
-  line-height: 4rem;
-  color: #987cb8;
+  font-weight: normal;
+  line-height: 3rem;
+  color: #ff893a;
 }
 
 nav img {
   height: 4rem;
 }
 
-.world-report {
+.totals {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -50,90 +50,106 @@ nav img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-weight: bold;
+  width: 100%;
 }
 
-.world-report a {
-  font-family: 'Noto Sans', sans-serif;
+.totals .view-by-country {
+  width: 60%;
+  text-align: right;
+}
+
+.totals .view-by-country a {
   text-decoration: underline;
-  color: #987cb8;
-  font-size: 1.5rem;
+  color: #3a8cff;
+  font-size: 1.4rem;
+  font-family: 'Heebo', sans-serif;
 }
 
-.world-total,
-.world-active-cases,
-.world-closed-cases {
+.totals .world-report {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  width: 60%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   margin-top: 2rem;
-  font-family: 'Noto Sans', sans-serif;
-  padding: 0.5rem;
-  font-weight: light;
-  font-size: 1.7rem;
-  text-align: center;
-  color: #a888cc;
+  padding: 1rem 0;
 }
 
-.world-total .world-number,
-.world-active-cases .world-number,
-.world-closed-cases .world-number {
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 2rem;
-  color: #888;
-  font-weight: bold;
+.totals .world-report .world-labels {
+  font-size: 1.2rem;
+  font-family: 'Heebo', sans-serif;
+  color: #3a8cff;
+  text-align: right;
 }
 
-.country-report {
+.totals .world-report hr {
+  width: 1;
+  size: 100%;
+  color: #969595;
+}
+
+.totals .world-report .world-numbers {
+  font-size: 1.2rem;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.totals .country-report {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
+  margin: 2rem 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-weight: bold;
-  font-family: 'Noto Sans', sans-serif;
-  margin-top: 2rem;
 }
 
-.country-report .country-cases,
-.country-report .country-deaths,
-.country-report .country-recovered {
+.totals .country-report .country-name-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: light;
-  font-size: 1.7rem;
-  text-align: center;
-  color: #a888cc;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
-.country-report .country {
+.totals .country-report .country-name-label .country-name {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 2rem;
-  color: #987cb8;
+  color: #ff893a;
   font-weight: bold;
+  font-size: 1.3rem;
 }
 
-.country-report .country-number {
+.totals .country-report .country-report-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.totals .country-report .country-report-inner .country-labels {
+  font-size: 1.2rem;
+  font-family: 'Heebo', sans-serif;
+  color: #3a8cff;
+  text-align: right;
+}
+
+.totals .country-report .country-report-inner .country-numbers {
+  font-size: 1.2rem;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 2rem;
-  color: #888;
-  font-weight: bold;
 }
 
 .search {
@@ -141,48 +157,54 @@ nav img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 2rem 0;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 1.2rem;
-  color: #987cb8;
+  margin-top: 2rem;
 }
 
-.search input {
-  margin-top: 0.5rem;
-  text-align: center;
+.search .search-form .form-group {
+  padding: 0.2rem;
+  width: auto;
+  border: 2px solid #ff893a;
+  position: relative;
+}
+
+.search .search-form .form-group > label {
+  position: absolute;
+  top: -1rem;
+  left: 0.5rem;
+  padding: 0 0.6rem;
+  color: #3a8cff;
   background-color: #f7f7f7;
-  border: 2px solid #a888cc;
-  color: #987cb8;
-  outline: none;
-  font-size: 1.5rem;
-  border-radius: 0.3rem;
+  font-size: 1rem;
   font-family: 'Noto Sans', sans-serif;
+  text-transform: uppercase;
 }
 
-.search ::-webkit-input-placeholder {
-  color: #987cb8;
+.search .search-form input {
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #f7f7f7;
+  margin-left: 1rem;
 }
 
-.search :-ms-input-placeholder {
-  color: #987cb8;
+.search .search-form ::-webkit-input-placeholder {
+  color: #ff893a;
 }
 
-.search ::-ms-input-placeholder {
-  color: #987cb8;
+.search .search-form :-ms-input-placeholder {
+  color: #ff893a;
 }
 
-.search ::placeholder {
-  color: #987cb8;
+.search .search-form ::-ms-input-placeholder {
+  color: #ff893a;
+}
+
+.search .search-form ::placeholder {
+  color: #ff893a;
 }
 
 main {
@@ -199,8 +221,8 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid #987cb8;
-  margin: 2rem;
+  border: 1px solid #3a8cff;
+  margin: 1rem 2rem;
   -ms-scroll-snap-type: mandatory;
       scroll-snap-type: mandatory;
 }
@@ -248,7 +270,7 @@ main {
   text-align: left;
   padding: 0 0.5rem;
   cursor: pointer;
-  border: 1px solid #987cb8;
+  border: 1px solid #3a8cff;
   background-color: #f7f7f7;
   font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
@@ -301,17 +323,17 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  border: 1px solid #987cb8;
+  border: 1px solid #3a8cff;
   font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
 }
 
 .data-row:nth-child(odd) {
-  background-color: #a888cc;
+  background-color: #a0c8ff;
 }
 
 .data-row:nth-child(even) {
-  background-color: #eee;
+  background-color: #f7f7f7;
 }
 
 .error-message {
@@ -320,7 +342,7 @@ main {
   margin-top: 2rem;
   text-align: center;
   font-family: 'IBM Plex Sans', sans-serif;
-  color: #a888cc;
+  color: #ff893a;
 }
 
 footer {
@@ -336,13 +358,13 @@ footer {
           justify-content: space-evenly;
   font-size: 1.3rem;
   font-family: 'Noto Sans', sans-serif;
-  color: #a888cc;
+  color: #ff893a;
   margin-bottom: 2rem;
 }
 
 footer a {
   text-decoration: none;
-  color: #987cb8;
+  color: #3a8cff;
 }
 
 @media all and (min-width: 1360px) {

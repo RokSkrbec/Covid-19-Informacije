@@ -5,8 +5,8 @@ const errorMessageContainer = document.querySelector('.error-message')
 const localization = 'en-GB'
 
 fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     document.querySelector('.world-cases-number').innerHTML = data.reports[0].cases.toLocaleString(localization)
     document.querySelector('.world-deaths-number').innerHTML = data.reports[0].deaths.toLocaleString(localization)
     document.querySelector('.world-recovered-number').innerHTML = data.reports[0].recovered.toLocaleString(localization)
@@ -26,15 +26,15 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
         Serious_Critical: data.reports[0].table[0][i].Serious_Critical === '' ? '' : parseInt(data.reports[0].table[0][i].Serious_Critical.replace(',', '')),
         TotCases_1M_Pop: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')),
         DeathsPercent: data.reports[0].table[0][i].Deaths_1M_pop === '' ? '' : parseInt(data.reports[0].table[0][i].Deaths_1M_pop.replace(',', '')) * 0.0001,
-        CasesPercent: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')) * 0.0001
+        CasesPercent: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')) * 0.0001,
       }
     }
     allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
     document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
     showTableData()
     fetch('https://ipapi.co/json/')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data)
         for (let i = 0; i < allCountriesCovidData.length; i++) {
           if (allCountriesCovidData[i].Country.toLowerCase() === data.country_name.toLowerCase()) {
@@ -42,7 +42,7 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
             DeathsPercent = Number(DeathsPercent).toFixed(4)
             CasesPercent = allCountriesCovidData[i].CasesPercent
             CasesPercent = Number(CasesPercent).toFixed(4)
-            document.querySelector('.country').innerHTML = allCountriesCovidData[i].Country
+            document.querySelector('.country-name').innerHTML = allCountriesCovidData[i].Country
             document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases
             document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths
             document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered
@@ -51,11 +51,11 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
           }
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err)
       })
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
     errorMessageContainer.innerHTML = 'Napaka pri nalaganju podatkov, poskusite kasneje.'
   })
@@ -71,7 +71,7 @@ function orderByColumn(orderClass, orderColumn) {
   dataContainer.innerHTML = ''
 
   if (order == 'asc') {
-    orderContainer.forEach(order => {
+    orderContainer.forEach((order) => {
       order.innerHTML = ''
     })
     document.querySelector(orderClass).innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
@@ -79,7 +79,7 @@ function orderByColumn(orderClass, orderColumn) {
     showTableData()
     order = 'desc'
   } else {
-    orderContainer.forEach(order => {
+    orderContainer.forEach((order) => {
       order.innerHTML = ''
     })
     document.querySelector(orderClass).innerHTML = '<img src="images/order-asc.svg" alt="order asc arrow">'
@@ -150,7 +150,7 @@ if (IsTouchDevice) {
 
 const searchBar = document.forms['search'].querySelector('input')
 
-searchBar.addEventListener(searchBarEventListener, function(e) {
+searchBar.addEventListener(searchBarEventListener, function (e) {
   dataContainer.innerHTML = ''
   const term = e.target.value.toLowerCase()
   for (let i = 0; i < allCountriesCovidData.length; i++) {

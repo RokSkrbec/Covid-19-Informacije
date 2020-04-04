@@ -21,125 +21,156 @@ nav {
   justify-content: center;
   text-align: center;
   padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: 'Bitter', sans-serif;
-    line-height: 4rem;
-    color: $terciaryColor;
+    font-weight: normal;
+    line-height: 3rem;
+    color: $primaryColor;
   }
   img {
     height: 4rem;
   }
 }
 
-.world-report {
+.totals {
   display: flex;
-  width: 100%;
   flex-direction: column;
-  //justify-content: center;
   align-items: center;
-  font-weight: bold;
-  a {
-    font-family: 'Noto Sans', sans-serif;
-    text-decoration: underline;
-    color: $terciaryColor;
-    font-size: 1.5rem;
-  }
-}
-
-.world-total,
-.world-active-cases,
-.world-closed-cases {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-  font-family: 'Noto Sans', sans-serif;
-  padding: 0.5rem;
-  font-weight: light;
-  font-size: 1.7rem;
-  text-align: center;
-  color: $primaryColor;
-  .world-number {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 2rem;
-    color: #888;
-    font-weight: bold;
-  }
-}
-
-.country-report {
-  display: flex;
   width: 100%;
-  flex-direction: column;
-  //justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-family: 'Noto Sans', sans-serif;
-  margin-top: 2rem;
 
-  .country-cases,
-  .country-deaths,
-  .country-recovered {
+  .view-by-country {
+    width: 60%;
+    text-align: right;
+
+    a {
+      text-decoration: underline;
+      color: $secondaryColor;
+      font-size: 1.4rem;
+      font-family: 'Heebo', sans-serif;
+    }
+  }
+
+  .world-report {
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    padding: 1rem 0;
+
+    .world-labels {
+      //padding-right: 2rem;
+      font-size: 1.2rem;
+      font-family: 'Heebo', sans-serif;
+      color: $secondaryColor;
+      text-align: right;
+    }
+
+    hr {
+      width: 1;
+      size: 100%;
+      color: #969595;
+    }
+
+    .world-numbers {
+      //padding-left: 2rem;
+      font-size: 1.2rem;
+      font-family: 'Noto Sans', sans-serif;
+    }
+  }
+
+  .country-report {
     display: flex;
     flex-direction: column;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: light;
-    font-size: 1.7rem;
-    text-align: center;
-    color: $primaryColor;
-  }
+    width: 100%;
+    margin: 2rem 0;
+    align-items: center;
 
-  .country {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 2rem;
-    color: $terciaryColor;
-    font-weight: bold;
-  }
-  .country-number {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 2rem;
-    color: #888;
-    font-weight: bold;
+    .country-name-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Heebo', sans-serif;
+      //width: 50%;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+
+      .country-name {
+        font-family: 'Noto Sans', sans-serif;
+        color: $primaryColor;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+    }
+
+    .country-report-inner {
+      display: flex;
+      width: 60%;
+      justify-content: space-evenly;
+      margin-top: 1rem;
+
+      .country-labels {
+        font-size: 1.2rem;
+        font-family: 'Heebo', sans-serif;
+        color: $secondaryColor;
+        text-align: right;
+      }
+
+      .country-numbers {
+        font-size: 1.2rem;
+        font-family: 'Noto Sans', sans-serif;
+      }
+    }
   }
 }
 
 .search {
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 2rem 0;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 1.2rem;
-  color: $terciaryColor;
-  input {
-    margin-top: 0.5rem;
-    text-align: center;
-    background-color: $backgroundColor;
-    border: 2px solid $primaryColor;
-    color: $terciaryColor;
-    outline: none;
-    font-size: 1.5rem;
-    border-radius: 0.3rem;
-    font-family: 'Noto Sans', sans-serif;
-  }
-  ::placeholder {
-    color: $terciaryColor;
+  margin-top: 2rem;
+  .search-form {
+    .form-group {
+      padding: 0.2rem;
+      width: auto;
+      border: 2px solid $primaryColor;
+      position: relative;
+      > label {
+        position: absolute;
+        top: -1rem;
+        left: 0.5rem;
+        padding: 0 0.6rem;
+        color: $secondaryColor;
+        background-color: $backgroundColor;
+        font-size: 1rem;
+        font-family: 'Noto Sans', sans-serif;
+        text-transform: uppercase;
+      }
+    }
+
+    input {
+      border: none;
+      outline: none;
+      font-size: 1.2rem;
+      font-family: 'Noto Sans', sans-serif;
+      background-color: $backgroundColor;
+      margin-left: 1rem;
+    }
+    ::placeholder {
+      color: $primaryColor;
+    }
   }
 }
 
 main {
   display: flex;
-  //justify-content: center;
 }
 
 .table {
   display: flex;
   flex-direction: column;
-  border: 1px solid $terciaryColor;
-  margin: 2rem;
+  border: 1px solid $secondaryColor;
+  margin: 1rem 2rem;
   scroll-snap-type: mandatory;
 
   .header-container {
@@ -165,7 +196,7 @@ main {
       text-align: left;
       padding: 0 0.5rem;
       cursor: pointer;
-      border: 1px solid $terciaryColor;
+      border: 1px solid $secondaryColor;
       background-color: $backgroundColor;
       font-weight: bold;
       font-family: 'Noto Sans', sans-serif;
@@ -199,7 +230,7 @@ main {
         justify-content: center;
         align-items: center;
         text-align: center;
-        border: 1px solid $terciaryColor;
+        border: 1px solid $secondaryColor;
         font-weight: bold;
         font-family: 'Noto Sans', sans-serif;
       }
@@ -208,10 +239,10 @@ main {
 }
 
 .data-row:nth-child(odd) {
-  background-color: $primaryColor;
+  background-color: lighten($secondaryColor, 20%);
 }
 .data-row:nth-child(even) {
-  background-color: $secondaryColor;
+  background-color: $backgroundColor;
 }
 
 .error-message {
@@ -234,7 +265,7 @@ footer {
   margin-bottom: 2rem;
   a {
     text-decoration: none;
-    color: $terciaryColor;
+    color: $secondaryColor;
   }
 }
 
