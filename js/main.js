@@ -43,9 +43,9 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
             CasesPercent = Number(CasesPercent).toFixed(4)
             document.querySelector('.country-name').innerHTML = allCountriesCovidData[i].Country
             document.querySelector('.country-flag').innerHTML = '<img src="https://www.countryflags.io/' + data.country_code.toLowerCase() + '/flat/64.png">'
-            document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases
-            document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths
-            document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered
+            document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases.toLocaleString(localization)
+            document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths.toLocaleString(localization)
+            document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered.toLocaleString(localization)
           }
         }
         document.querySelector('.loading-content').style.display = 'none'
