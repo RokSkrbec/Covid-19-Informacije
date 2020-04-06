@@ -54,7 +54,7 @@ nav img {
 
 .loading-content {
   position: fixed;
-  top: 7rem;
+  top: 9rem;
   width: 100%;
   height: 100%;
   background-color: #f7f7f7;
@@ -450,6 +450,9 @@ footer a {
 @media all and (min-width: 1024px) {
   nav h1 {
     font-size: 5rem;
+  }
+  .loading-content {
+    top: 11rem;
   }
   .totals h2 {
     width: 60%;
