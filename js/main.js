@@ -35,7 +35,6 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
     fetch('https://ipapi.co/json/')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         for (let i = 0; i < allCountriesCovidData.length; i++) {
           if (allCountriesCovidData[i].Country.toLowerCase() === data.country_name.toLowerCase()) {
             DeathsPercent = allCountriesCovidData[i].DeathsPercent
@@ -47,8 +46,6 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
             document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases
             document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths
             document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered
-
-            console.log(allCountriesCovidData[i])
           }
         }
         document.querySelector('.loading-content').style.display = 'none'
