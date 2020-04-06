@@ -23,8 +23,21 @@ nav {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 4rem 0;
+}
+
+nav ::after {
+  content: '';
+  background-image: url(../images/header-background-image.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 nav h1 {
@@ -32,11 +45,63 @@ nav h1 {
   font-family: 'Bitter', sans-serif;
   font-weight: normal;
   line-height: 3rem;
-  color: #ff893a;
+  color: #34701c;
 }
 
 nav img {
   height: 4rem;
+}
+
+.loading-content {
+  position: fixed;
+  top: 7rem;
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+  z-index: 5;
+}
+
+.loading-content .loading-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loading-content .loader {
+  margin-top: 10rem;
+  position: fixed;
+  border: 1.6rem solid #dfdfdf;
+  border-radius: 50%;
+  border-top: 1.6rem solid #63954f;
+  width: 12rem;
+  height: 12rem;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 .totals {
@@ -54,91 +119,107 @@ nav img {
 }
 
 .totals .view-by-country {
-  width: 60%;
-  text-align: right;
+  display: inline-block;
+  background-color: #34701c;
+  padding: 0.6rem 2.2rem;
+  margin-bottom: 4rem;
 }
 
 .totals .view-by-country a {
-  text-decoration: underline;
-  color: #3a8cff;
+  text-decoration: none;
+  color: #f7f7f7;
   font-size: 1.4rem;
   font-family: 'Heebo', sans-serif;
+}
+
+.totals h2 {
+  width: 90%;
+  color: #34701c;
+  font-size: 1.4rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
 }
 
 .totals .world-report {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 60%;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin-top: 2rem;
-  padding: 1rem 0;
+  width: 90%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1rem;
+  border-bottom: 1px solid #34701c;
 }
 
-.totals .world-report .world-labels {
+.totals .world-report .world-data {
   font-size: 1.2rem;
-  font-family: 'Heebo', sans-serif;
-  color: #3a8cff;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  color: #333;
   text-align: right;
 }
 
-.totals .world-report hr {
-  width: 1;
-  size: 100%;
-  color: #969595;
+.totals .world-report .world-data .world-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.totals .world-report .world-numbers {
-  font-size: 1.2rem;
-  font-family: 'Noto Sans', sans-serif;
+.totals .world-report .world-data .world-label .world-number {
+  margin-left: 1rem;
+  color: #63954f;
+}
+
+.totals .world-report .world-image img {
+  width: 12rem;
+  height: 12rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.totals .country-name {
+  text-align: right;
+  margin-top: 4rem;
 }
 
 .totals .country-report {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 60%;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin-top: 1rem;
-}
-
-.totals .country-name {
-  font-family: 'Noto Sans', sans-serif;
-  color: #ff893a;
-  font-weight: bold;
-  font-size: 1.3rem;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.totals .country-labels {
-  font-size: 1.2rem;
-  font-family: 'Heebo', sans-serif;
-  color: #3a8cff;
-  text-align: right;
-}
-
-.totals .country-labels .country-name-label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  width: 90%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-family: 'Heebo', sans-serif;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  text-decoration: underline;
-  cursor: pointer;
+  margin-top: 1rem;
+  border-bottom: 1px solid #34701c;
 }
 
-.totals .country-number {
+.totals .country-report .country-data {
   font-size: 1.2rem;
   font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+}
+
+.totals .country-report .country-data .country-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.totals .country-report .country-number {
+  margin-left: 1rem;
+  color: #63954f;
 }
 
 .search {
@@ -149,13 +230,13 @@ nav img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .search .search-form .form-group {
-  padding: 0.2rem;
+  padding: 1rem 2rem;
   width: auto;
-  border: 2px solid #ff893a;
+  border: 2px solid #34701c;
   position: relative;
 }
 
@@ -164,9 +245,9 @@ nav img {
   top: -1rem;
   left: 0.5rem;
   padding: 0 0.6rem;
-  color: #3a8cff;
+  color: #63954f;
   background-color: #f7f7f7;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: 'Noto Sans', sans-serif;
   text-transform: uppercase;
 }
@@ -174,26 +255,26 @@ nav img {
 .search .search-form input {
   border: none;
   outline: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: 'Noto Sans', sans-serif;
   background-color: #f7f7f7;
   margin-left: 1rem;
 }
 
 .search .search-form ::-webkit-input-placeholder {
-  color: #ff893a;
+  color: #34701c;
 }
 
 .search .search-form :-ms-input-placeholder {
-  color: #ff893a;
+  color: #34701c;
 }
 
 .search .search-form ::-ms-input-placeholder {
-  color: #ff893a;
+  color: #34701c;
 }
 
 .search .search-form ::placeholder {
-  color: #ff893a;
+  color: #34701c;
 }
 
 main {
@@ -210,8 +291,8 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid #3a8cff;
-  margin: 1rem 2rem;
+  border: 1px solid #63954f;
+  margin: 2rem 2rem;
   -ms-scroll-snap-type: mandatory;
       scroll-snap-type: mandatory;
 }
@@ -259,7 +340,7 @@ main {
   text-align: left;
   padding: 0 0.5rem;
   cursor: pointer;
-  border: 1px solid #3a8cff;
+  border: 1px solid #63954f;
   background-color: #f7f7f7;
   font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
@@ -312,13 +393,13 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  border: 1px solid #3a8cff;
+  border: 1px solid #63954f;
   font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
 }
 
 .data-row:nth-child(odd) {
-  background-color: #a0c8ff;
+  background-color: #99c189;
 }
 
 .data-row:nth-child(even) {
@@ -331,7 +412,7 @@ main {
   margin-top: 2rem;
   text-align: center;
   font-family: 'IBM Plex Sans', sans-serif;
-  color: #ff893a;
+  color: #34701c;
 }
 
 footer {
@@ -347,13 +428,41 @@ footer {
           justify-content: space-evenly;
   font-size: 1.3rem;
   font-family: 'Noto Sans', sans-serif;
-  color: #ff893a;
+  color: #34701c;
   margin-bottom: 2rem;
 }
 
 footer a {
   text-decoration: none;
-  color: #3a8cff;
+  color: #63954f;
+}
+
+@media all and (min-width: 768px) {
+  .totals h2 {
+    width: 70%;
+  }
+  .totals .world-report,
+  .totals .country-report {
+    width: 70%;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  nav h1 {
+    font-size: 5rem;
+  }
+  .totals h2 {
+    width: 60%;
+    font-size: 2.5rem;
+  }
+  .totals .world-report,
+  .totals .country-report {
+    width: 60%;
+  }
+  .totals .world-data,
+  .totals .country-data {
+    font-size: 2rem;
+  }
 }
 
 @media all and (min-width: 1360px) {
@@ -361,6 +470,18 @@ footer a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  .totals h2 {
+    width: 35%;
+    font-size: 3rem;
+  }
+  .totals .world-report,
+  .totals .country-report {
+    width: 35%;
+  }
+  .totals .world-data,
+  .totals .country-data {
+    font-size: 2.5rem;
   }
   .table .header-container .header-row .header {
     min-width: 10rem;

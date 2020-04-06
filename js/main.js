@@ -2,7 +2,7 @@ const allCountriesCovidData = []
 const dataContainer = document.querySelector('.data-container')
 const errorMessageContainer = document.querySelector('.error-message')
 
-const localization = 'en-GB'
+const localization = 'sl-SI'
 
 fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
   .then((res) => res.json())
@@ -43,6 +43,7 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
             CasesPercent = allCountriesCovidData[i].CasesPercent
             CasesPercent = Number(CasesPercent).toFixed(4)
             document.querySelector('.country-name').innerHTML = allCountriesCovidData[i].Country
+            document.querySelector('.country-flag').innerHTML = '<img src="https://www.countryflags.io/' + data.country_code.toLowerCase() + '/flat/64.png">'
             document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases
             document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths
             document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered
@@ -50,6 +51,7 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
             console.log(allCountriesCovidData[i])
           }
         }
+        document.querySelector('.loading-content').style.display = 'none'
       })
       .catch((err) => {
         console.log(err)
@@ -180,26 +182,3 @@ searchBar.addEventListener(searchBarEventListener, function (e) {
 })
 
 //----------------------------- location functionality --------------------------
-
-let countryLabelsInner = document.querySelector('.country-labels-inner')
-let countryNumbersInner = document.querySelector('.country-numbers-inner')
-
-document.querySelector('.country-name-label').addEventListener('click', function () {
-  if (countryLabelsInner.style.display === 'block') {
-    countryLabelsInner.style.display = 'none'
-    countryNumbersInner.style.display = 'none'
-  } else {
-    countryLabelsInner.style.display = 'block'
-    countryNumbersInner.style.display = 'block'
-  }
-})
-
-document.querySelector('.country-name').addEventListener('click', function () {
-  if (countryLabelsInner.style.display === 'block') {
-    countryLabelsInner.style.display = 'none'
-    countryNumbersInner.style.display = 'none'
-  } else {
-    countryLabelsInner.style.display = 'block'
-    countryNumbersInner.style.display = 'block'
-  }
-})

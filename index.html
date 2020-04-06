@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,58 +10,45 @@
     <title>How fucked are we?</title>
   </head>
   <body>
+    <div class="loading-content">
+      <div class="loading-content-wrapper">
+        <div class="loader"></div>
+      </div>      
+    </div>
     <nav>
-      <h1>How fucked are we?</h1>
-      <!--img src="images/logo.svg" alt="logo" /-->
+      <h1>Covid-19 informacije</h1>
     </nav>
     <section class="totals">
-    <div class="view-by-country"><a href="#search-anchor">view by country</a></div>
+    <div class="view-by-country"><a href="#search-anchor">podatki po državah</a></div>
+    <h2>Svetovni podatki</h2>
     <div class="world-report">     
-      <div class="world-labels">      
-        <div class="world-cases">Total  cases:</div>
-        <div class="world-deaths">Deaths:</div>
-        <div class="world-recovered">Recovered:</div>
-        <div class="world-curently-infected-patients">Infected:</div>
-        <div class="world-in-mid-condition">Mid condition:</div>
-        <div class="world-critical-states">Critical condition:</div>
+      <div class="world-data">      
+        <div class="world-label world-cases">Pozitivni primeri<div class="world-number world-cases-number"></div></div>
+        <div class="world-label world-deaths">Smrti<div class="world-number world-deaths-number"></div></div>
+        <div class="world-label world-recovered">Ozdravljeni<div class="world-number world-recovered-number"></div></div>
+        <div class="world-label world-curently-infected-patients">Okuženi<div class="world-number world-curently-infected-patients-number"></div></div>
+        <div class="world-label world-in-mid-condition">Stabilni<div class="world-number world-in-mid-condition-number"></div></div>
+        <div class="world-label world-critical-states">Kritično stanje<div class="world-number world-critical-states-number"></div></div>
       </div>
-      <hr>
-      <div class="world-numbers">
-        <div class="world-number world-cases-number"></div>
-        <div class="world-number world-deaths-number"></div>
-        <div class="world-number world-recovered-number"></div>
-        <div class="world-number world-curently-infected-patients-number"></div>
-        <div class="world-number world-in-mid-condition-number"></div>
-        <div class="world-number world-critical-states-number"></div>
+      <div class="world-image">
+        <img src="/images/earth.png" alt="">
       </div>
     </div>
-    <div class="country-report">             
-        <div class="country-labels">
-        <div class="country-name-label">your location: </div>
-        <div class="country-labels-inner" style="display: none;">
-          <div class="country-cases">Total cases:</div>
-        <div class="country-deaths">Total deaths:</div>
-        <div class="country-recovered">Total recovered:</div>
+    <h2 class="country-name"></h2>
+    <div class="country-report">
+      <div class="country-flag"></div>
+        <div class="country-data">
+          <div class="country-label country-cases">Pozitivni primeri<div class="country-number country-number-cases"></div></div>
+          <div class="country-label country-deaths">Smrti<div class="country-number country-number-deaths"></div></div>
+          <div class="country-label country-recovered">Ozdravljeni<div class="country-number country-number-recovered"></div></div>
         </div>
-        
-      </div>
-      <hr>
-      <div class="country-numbers">
-        <div class="country-name"></div>
-        <div class="country-numbers-inner" style="display: none;">
-          <div class="country-number country-number-cases"></div>
-        <div class="country-number country-number-deaths"></div>
-        <div class="country-number country-number-recovered"></div>
-        </div>
-        
-      </div>
     </div>
   </section>
   <section class="search" id="search-anchor">
     <form id="search" class="search-form">
       <div class="form-group">
-        <label>Search</label>
-        <input type="text" placeholder="Country name">
+        <label>Iskanje</label>
+        <input type="text" placeholder="Država...">
       </div>
       
     </form>
@@ -72,51 +59,51 @@
           <div class="header-row">
           <button class="header header-number">#</button>
           <button class="header header-country" onclick="orderByColumn('.order-country','Country')">
-            Country
+            Država
             <div class="order order-country"></div>
           </button>
           <button class="header header-total-cases" onclick="orderByColumn('.order-total-cases','TotalCases')">
-            Total Cases
+            Pozitivni primeri
             <div class="order order-total-cases"></div>
           </button>
           <button class="header header-new-cases" onclick="orderByColumn('.order-new-cases','NewCases')">
-            New <br />Cases
+            Novi primeri
             <div class="order order-new-cases"></div>
           </button>
           <button class="header header-total-deaths" onclick="orderByColumn('.order-total-deaths','TotalDeaths')">
-            Total <br />Deaths
+            Smrti
             <div class="order order-total-deaths"></div>
           </button>
           <button class="header header-new-deaths" onclick="orderByColumn('.order-new-deaths','NewDeaths')">
-            New<br />Deaths
+            Nove smrti
             <div class="order order-new-deaths"></div>
           </button>
           <button class="header header-total-recovered" onclick="orderByColumn('.order-total-recovered','TotalRecovered')">
-            Total<br />Recovered
+            Ozdravljeni
             <div class="order order-total-recovered"></div>
           </button>
           <button class="header header-active-cases" onclick="orderByColumn('.order-active-cases','ActiveCases')">
-            Active<br />Cases
+            Okuženi
             <div class="order order-active-cases"></div>
           </button>
           <button class="header header-deaths-1m-pop" onclick="orderByColumn('.order-deaths-1m-pop','Deaths_1M_pop')">
-            Deaths <br />_1M_pop
+            Umrlih na 1 mio.
             <div class="order order-deaths-1m-pop"></div>
           </button>
           <button class="header header-serious-critical" onclick="orderByColumn('.order-serious-critical','Serious_Critical')">
-            Serious<br />Critical
+            Krtično stanje
             <div class="order order-serious-critical"></div>
           </button>
           <button class="header header-total-cases-1m-pop" onclick="orderByColumn('.order-total-cases-1m-pop','TotalCases_1M_Pop')">
-            TotCases<br />1M_Pop
+            Primeri na 1 mio.
             <div class="order order-total-cases-1m-pop"></div>
           </button>
           <button class="header header-deaths-percent" onclick="orderByColumn('.order-deaths-percent','DeathsPercent')">
-            Deaths<br />Percent
+            % umrlih
             <div class="order order-deaths-percent"></div>
           </button>
           <button class="header header-cases-percent" onclick="orderByColumn('.order-cases-percent','CasesPercent')">
-            Cases<br />Percent
+            % primerov
             <div class="order order-cases-percent"></div>
           </button>
         </div>
