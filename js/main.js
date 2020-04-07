@@ -4,65 +4,9 @@ const errorMessageContainer = document.querySelector('.error-message')
 
 const localization = 'sl-SI'
 
-fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
-  .then((res) => res.json())
-  .then((data) => {
-    document.querySelector('.world-cases-number').innerHTML = data.reports[0].cases.toLocaleString(localization)
-    document.querySelector('.world-deaths-number').innerHTML = data.reports[0].deaths.toLocaleString(localization)
-    document.querySelector('.world-recovered-number').innerHTML = data.reports[0].recovered.toLocaleString(localization)
-    document.querySelector('.world-curently-infected-patients-number').innerHTML = data.reports[0].active_cases[0].currently_infected_patients.toLocaleString(localization)
-    document.querySelector('.world-in-mid-condition-number').innerHTML = data.reports[0].active_cases[0].inMidCondition.toLocaleString(localization)
-    document.querySelector('.world-critical-states-number').innerHTML = data.reports[0].active_cases[0].criticalStates.toLocaleString(localization)
-    for (let i = 0; i < data.reports[0].table[0].length - 1; i++) {
-      allCountriesCovidData[i] = {
-        TotalCases: data.reports[0].table[0][i].TotalCases === '' ? '' : parseInt(data.reports[0].table[0][i].TotalCases.replace(',', '')),
-        NewCases: data.reports[0].table[0][i].NewCases === '' ? '' : parseInt(data.reports[0].table[0][i].NewCases.replace('+', '').replace(',', '')),
-        TotalDeaths: data.reports[0].table[0][i].TotalDeaths === '' ? '' : parseInt(data.reports[0].table[0][i].TotalDeaths.replace(',', '')),
-        NewDeaths: data.reports[0].table[0][i].NewDeaths === '' ? '' : parseInt(data.reports[0].table[0][i].NewDeaths.replace('+', '').replace(',', '')),
-        TotalRecovered: data.reports[0].table[0][i].TotalRecovered === '' ? '' : parseInt(data.reports[0].table[0][i].TotalRecovered.replace(',', '')),
-        ActiveCases: data.reports[0].table[0][i].ActiveCases === '' ? '' : parseInt(data.reports[0].table[0][i].ActiveCases.replace(',', '')),
-        Deaths_1M_pop: data.reports[0].table[0][i].Deaths_1M_pop === '' ? '' : parseInt(data.reports[0].table[0][i].Deaths_1M_pop.replace(',', '')),
-        Country: data.reports[0].table[0][i].Country,
-        Serious_Critical: data.reports[0].table[0][i].Serious_Critical === '' ? '' : parseInt(data.reports[0].table[0][i].Serious_Critical.replace(',', '')),
-        TotCases_1M_Pop: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')),
-        DeathsPercent: data.reports[0].table[0][i].Deaths_1M_pop === '' ? '' : parseInt(data.reports[0].table[0][i].Deaths_1M_pop.replace(',', '')) * 0.0001,
-        CasesPercent: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')) * 0.0001,
-      }
-    }
-    allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
-    document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
-    showTableData()
-    fetch('https://ipapi.co/json/')
-      .then((res) => res.json())
-      .then((data) => {
-        for (let i = 0; i < allCountriesCovidData.length; i++) {
-          if (allCountriesCovidData[i].Country.toLowerCase() === data.country_name.toLowerCase()) {
-            DeathsPercent = allCountriesCovidData[i].DeathsPercent
-            DeathsPercent = Number(DeathsPercent).toFixed(4)
-            CasesPercent = allCountriesCovidData[i].CasesPercent
-            CasesPercent = Number(CasesPercent).toFixed(4)
-            document.querySelector('.country-name').innerHTML = allCountriesCovidData[i].Country
-            document.querySelector('.country-flag').innerHTML = '<img src="https://www.countryflags.io/' + data.country_code.toLowerCase() + '/flat/64.png">'
-            document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases.toLocaleString(localization)
-            document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths.toLocaleString(localization)
-            document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered.toLocaleString(localization)
-          }
-        }
-        document.querySelector('.loading-content').style.display = 'none'
-      })
-      .catch((err) => {
-        console.log(err)
-        document.querySelector('.loading-content').style.display = 'none'
-        document.querySelector('.country-report').innerHTML = '<div class="country-error">Za prikaz podatkov o vaši državi onemogočite adblock.</div>'
-      })
-  })
-  .catch((err) => {
-    console.log(err)
-    errorMessageContainer.innerHTML = 'Napaka pri nalaganju podatkov, poskusite kasneje.'
-  })
+getCovidData()
 
-//--------------------------------------- order by functionality--------------------------
-
+//--------------- order by function (called from html) --------------------------
 let order = 'asc'
 let orderContainer = document.querySelectorAll('.order')
 
@@ -91,7 +35,6 @@ function orderByColumn(orderClass, orderColumn) {
 }
 
 //----------------------------------- draw table function ------------------------------
-
 function showTableData() {
   for (let i = 0; i < allCountriesCovidData.length; i++) {
     DeathsPercent = allCountriesCovidData[i].DeathsPercent
@@ -118,7 +61,6 @@ function showTableData() {
 }
 
 //-------------------------- sorting function -------------------------------
-
 function compareValues(key, order = 'asc') {
   return function innerSort(a, b) {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -140,7 +82,6 @@ function compareValues(key, order = 'asc') {
 }
 
 //--------------------- search bar functionality -----------------------------------
-
 let IsTouchDevice = navigator.maxTouchPoints || 'ontouchstart' in document.documentElement
 let searchBarEventListener = ''
 if (IsTouchDevice) {
@@ -180,4 +121,67 @@ searchBar.addEventListener(searchBarEventListener, function (e) {
   }
 })
 
-//----------------------------- location functionality --------------------------
+//----------------------------- get country based on ip  --------------------------
+function getCountry() {
+  fetch('https://ipapi.co/json/')
+    .then((res) => res.json())
+    .then((data) => {
+      for (let i = 0; i < allCountriesCovidData.length; i++) {
+        if (allCountriesCovidData[i].Country.toLowerCase() === data.country_name.toLowerCase()) {
+          DeathsPercent = allCountriesCovidData[i].DeathsPercent
+          DeathsPercent = Number(DeathsPercent).toFixed(4)
+          CasesPercent = allCountriesCovidData[i].CasesPercent
+          CasesPercent = Number(CasesPercent).toFixed(4)
+          document.querySelector('.country-name').innerHTML = allCountriesCovidData[i].Country
+          document.querySelector('.country-flag').innerHTML = '<img src="https://www.countryflags.io/' + data.country_code.toLowerCase() + '/flat/64.png">'
+          document.querySelector('.country-number-cases').innerHTML = allCountriesCovidData[i].TotalCases.toLocaleString(localization)
+          document.querySelector('.country-number-deaths').innerHTML = allCountriesCovidData[i].TotalDeaths.toLocaleString(localization)
+          document.querySelector('.country-number-recovered').innerHTML = allCountriesCovidData[i].TotalRecovered.toLocaleString(localization)
+        }
+      }
+      document.querySelector('.loading-content').style.display = 'none'
+    })
+    .catch((err) => {
+      console.log(err)
+      document.querySelector('.loading-content').style.display = 'none'
+      document.querySelector('.country-report').innerHTML = '<div class="country-error">Za prikaz podatkov o vaši državi onemogočite razširitve za blokiranje oglasov.</div>'
+    })
+}
+
+//---------------------------- get covid-19 data ------------------------------
+function getCovidData() {
+  fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
+    .then((res) => res.json())
+    .then((data) => {
+      document.querySelector('.world-cases-number').innerHTML = data.reports[0].cases.toLocaleString(localization)
+      document.querySelector('.world-deaths-number').innerHTML = data.reports[0].deaths.toLocaleString(localization)
+      document.querySelector('.world-recovered-number').innerHTML = data.reports[0].recovered.toLocaleString(localization)
+      document.querySelector('.world-curently-infected-patients-number').innerHTML = data.reports[0].active_cases[0].currently_infected_patients.toLocaleString(localization)
+      document.querySelector('.world-in-mid-condition-number').innerHTML = data.reports[0].active_cases[0].inMidCondition.toLocaleString(localization)
+      document.querySelector('.world-critical-states-number').innerHTML = data.reports[0].active_cases[0].criticalStates.toLocaleString(localization)
+      for (let i = 0; i < data.reports[0].table[0].length - 1; i++) {
+        allCountriesCovidData[i] = {
+          TotalCases: data.reports[0].table[0][i].TotalCases === '' ? '' : parseInt(data.reports[0].table[0][i].TotalCases.replace(',', '')),
+          NewCases: data.reports[0].table[0][i].NewCases === '' ? '' : parseInt(data.reports[0].table[0][i].NewCases.replace('+', '').replace(',', '')),
+          TotalDeaths: data.reports[0].table[0][i].TotalDeaths === '' ? '' : parseInt(data.reports[0].table[0][i].TotalDeaths.replace(',', '')),
+          NewDeaths: data.reports[0].table[0][i].NewDeaths === '' ? '' : parseInt(data.reports[0].table[0][i].NewDeaths.replace('+', '').replace(',', '')),
+          TotalRecovered: data.reports[0].table[0][i].TotalRecovered === '' ? '' : parseInt(data.reports[0].table[0][i].TotalRecovered.replace(',', '')),
+          ActiveCases: data.reports[0].table[0][i].ActiveCases === '' ? '' : parseInt(data.reports[0].table[0][i].ActiveCases.replace(',', '')),
+          Deaths_1M_pop: data.reports[0].table[0][i].Deaths_1M_pop === '' ? '' : parseInt(data.reports[0].table[0][i].Deaths_1M_pop.replace(',', '')),
+          Country: data.reports[0].table[0][i].Country,
+          Serious_Critical: data.reports[0].table[0][i].Serious_Critical === '' ? '' : parseInt(data.reports[0].table[0][i].Serious_Critical.replace(',', '')),
+          TotCases_1M_Pop: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')),
+          DeathsPercent: data.reports[0].table[0][i].Deaths_1M_pop === '' ? '' : parseInt(data.reports[0].table[0][i].Deaths_1M_pop.replace(',', '')) * 0.0001,
+          CasesPercent: data.reports[0].table[0][i].TotCases_1M_Pop === '' ? '' : parseInt(data.reports[0].table[0][i].TotCases_1M_Pop.replace(',', '')) * 0.0001,
+        }
+      }
+      allCountriesCovidData.sort(compareValues('TotalCases', 'desc'))
+      document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
+      showTableData()
+      getCountry()
+    })
+    .catch((err) => {
+      console.log(err)
+      errorMessageContainer.innerHTML = 'Napaka pri nalaganju podatkov, poskusite kasneje.'
+    })
+}

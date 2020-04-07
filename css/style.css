@@ -46,6 +46,7 @@ nav h1 {
   font-weight: normal;
   line-height: 3rem;
   color: #34701c;
+  text-transform: uppercase;
 }
 
 nav img {
