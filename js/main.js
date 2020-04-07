@@ -52,6 +52,8 @@ fetch('https://covid19-server.chrismichael.now.sh/api/v1/AllReports')
       })
       .catch((err) => {
         console.log(err)
+        document.querySelector('.loading-content').style.display = 'none'
+        document.querySelector('.country-report').innerHTML = '<div class="country-error">Za prikaz podatkov o vaši državi onemogočite adblock.</div>'
       })
   })
   .catch((err) => {
