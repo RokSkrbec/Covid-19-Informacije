@@ -86,17 +86,17 @@ nav {
   align-items: center;
   width: 100%;
 
-  .view-by-country {
-    display: inline-block;
-    background-color: $primaryColor;
-    padding: 0.6rem 2.2rem;
-    margin-bottom: 4rem;
+  a {
+    text-decoration: none;
+    color: $backgroundColor;
+    font-size: 1.4rem;
+    font-family: 'Heebo', sans-serif;
 
-    a {
-      text-decoration: none;
-      color: $backgroundColor;
-      font-size: 1.4rem;
-      font-family: 'Heebo', sans-serif;
+    .view-by-country {
+      display: inline-block;
+      background-color: $primaryColor;
+      padding: 0.6rem 2.2rem;
+      margin-bottom: 4rem;
     }
   }
 
@@ -223,6 +223,50 @@ nav {
   }
 }
 
+.refresh {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 4rem;
+
+  .refresh-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 90%;
+  }
+  .refresh-left {
+    .last-refresh-time {
+      display: flex;
+      font-size: 1.1rem;
+      font-family: 'Noto Sans', sans-serif;
+      color: $secondaryColor;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .refresh-button {
+      background-color: $primaryColor;
+      color: $backgroundColor;
+      outline: none;
+      border: none;
+      font-family: 'Noto Sans', sans-serif;
+      width: 10rem;
+      height: 3rem;
+      cursor: pointer;
+    }
+  }
+
+  .refresh-right {
+    font-size: 1.1rem;
+    font-family: 'Noto Sans', sans-serif;
+    color: $secondaryColor;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 0.5rem;
+  }
+}
+
 main {
   display: flex;
 }
@@ -231,7 +275,7 @@ main {
   display: flex;
   flex-direction: column;
   border: 1px solid $secondaryColor;
-  margin: 2rem 2rem;
+  margin: 0.5rem 2rem;
   scroll-snap-type: mandatory;
 
   .header-container {
@@ -340,6 +384,12 @@ footer {
       width: 70%;
     }
   }
+
+  .refresh {
+    .refresh-container {
+      width: 70%;
+    }
+  }
 }
 
 @media all and(min-width: 1024px) {
@@ -366,6 +416,11 @@ footer {
       font-size: 2rem;
     }
   }
+  .refresh {
+    .refresh-container {
+      width: 60%;
+    }
+  }
 }
 
 @media all and(min-width: 1360px) {
@@ -385,6 +440,12 @@ footer {
     .world-data,
     .country-data {
       font-size: 2.5rem;
+    }
+  }
+
+  .refresh {
+    .refresh-container {
+      width: 35%;
     }
   }
 

@@ -119,18 +119,18 @@ nav img {
   width: 100%;
 }
 
-.totals .view-by-country {
-  display: inline-block;
-  background-color: #34701c;
-  padding: 0.6rem 2.2rem;
-  margin-bottom: 4rem;
-}
-
-.totals .view-by-country a {
+.totals a {
   text-decoration: none;
   color: #f7f7f7;
   font-size: 1.4rem;
   font-family: 'Heebo', sans-serif;
+}
+
+.totals a .view-by-country {
+  display: inline-block;
+  background-color: #34701c;
+  padding: 0.6rem 2.2rem;
+  margin-bottom: 4rem;
 }
 
 .totals h2 {
@@ -288,6 +288,61 @@ nav img {
   color: #34701c;
 }
 
+.refresh {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.refresh .refresh-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 90%;
+}
+
+.refresh .refresh-left .last-refresh-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.1rem;
+  font-family: 'Noto Sans', sans-serif;
+  color: #63954f;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.refresh .refresh-left .refresh-button {
+  background-color: #34701c;
+  color: #f7f7f7;
+  outline: none;
+  border: none;
+  font-family: 'Noto Sans', sans-serif;
+  width: 10rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.refresh .refresh-right {
+  font-size: 1.1rem;
+  font-family: 'Noto Sans', sans-serif;
+  color: #63954f;
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -303,7 +358,7 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   border: 1px solid #63954f;
-  margin: 2rem 2rem;
+  margin: 0.5rem 2rem;
   -ms-scroll-snap-type: mandatory;
       scroll-snap-type: mandatory;
 }
@@ -456,6 +511,9 @@ footer a {
   .totals .country-report {
     width: 70%;
   }
+  .refresh .refresh-container {
+    width: 70%;
+  }
 }
 
 @media all and (min-width: 1024px) {
@@ -477,6 +535,9 @@ footer a {
   .totals .country-data {
     font-size: 2rem;
   }
+  .refresh .refresh-container {
+    width: 60%;
+  }
 }
 
 @media all and (min-width: 1360px) {
@@ -496,6 +557,9 @@ footer a {
   .totals .world-data,
   .totals .country-data {
     font-size: 2.5rem;
+  }
+  .refresh .refresh-container {
+    width: 35%;
   }
   .table .header-container .header-row .header {
     min-width: 10rem;

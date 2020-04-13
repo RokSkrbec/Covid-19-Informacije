@@ -1,8 +1,20 @@
 const allCountriesCovidData = []
 const dataContainer = document.querySelector('.data-container')
 const errorMessageContainer = document.querySelector('.error-message')
-
 const localization = 'sl-SI'
+
+// ------------------------ last refresh date/time and button --------------------
+
+const refreshButton = document.querySelector('.refresh-button')
+
+refreshButton.addEventListener('click', () => {
+  location.reload()
+})
+
+const refreshDate = new Date().toLocaleString(localization)
+document.querySelector('.last-refresh-time-number').innerHTML += refreshDate
+
+//--------------------------------------------------------------------------------
 
 getCovidData()
 
