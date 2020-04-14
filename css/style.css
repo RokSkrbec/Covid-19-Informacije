@@ -198,6 +198,7 @@ nav img {
           justify-content: space-between;
   margin-top: 1rem;
   border-bottom: 1px solid #34701c;
+  margin-bottom: 4rem;
 }
 
 .totals .country-report .country-data {
@@ -231,6 +232,60 @@ nav img {
   color: #63954f;
   text-align: center;
   margin-bottom: 5rem;
+}
+
+.deaths-by-age {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.deaths-by-age .deaths-by-age-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  border-bottom: 1px solid #34701c;
+}
+
+.deaths-by-age .deaths-by-age-container .deaths-by-age-title {
+  width: 100%;
+  text-align: center;
+  color: #34701c;
+  font-size: 1.4rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.deaths-by-age .deaths-by-age-container .range {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.2rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.deaths-by-age .deaths-by-age-container .range .range-number {
+  color: #63954f;
 }
 
 .search {
@@ -316,7 +371,7 @@ nav img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-family: 'Noto Sans', sans-serif;
   color: #63954f;
   font-weight: bold;
@@ -335,7 +390,7 @@ nav img {
 }
 
 .refresh .refresh-right {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-family: 'Noto Sans', sans-serif;
   color: #63954f;
   font-weight: bold;
@@ -511,8 +566,17 @@ footer a {
   .totals .country-report {
     width: 70%;
   }
+  .deaths-by-age .deaths-by-age-container {
+    width: 70%;
+  }
   .refresh .refresh-container {
     width: 70%;
+  }
+  .refresh .refresh-left .last-refresh-time {
+    font-size: 1.1rem;
+  }
+  .refresh .refresh-right {
+    font-size: 1.1rem;
   }
 }
 
@@ -534,6 +598,12 @@ footer a {
   .totals .world-data,
   .totals .country-data {
     font-size: 2rem;
+  }
+  .deaths-by-age .deaths-by-age-container {
+    width: 60%;
+  }
+  .deaths-by-age .deaths-by-age-container .deaths-by-age-title {
+    font-size: 2.5rem;
   }
   .refresh .refresh-container {
     width: 60%;
@@ -557,6 +627,15 @@ footer a {
   .totals .world-data,
   .totals .country-data {
     font-size: 2.5rem;
+  }
+  .deaths-by-age .deaths-by-age-container {
+    width: 35%;
+  }
+  .deaths-by-age .deaths-by-age-container .deaths-by-age-title {
+    font-size: 3rem;
+  }
+  .deaths-by-age .deaths-by-age-container .range {
+    font-size: 1.2rem;
   }
   .refresh .refresh-container {
     width: 35%;

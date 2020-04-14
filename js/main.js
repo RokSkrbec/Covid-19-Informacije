@@ -191,9 +191,28 @@ function getCovidData() {
       document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
       showTableData()
       getCountry()
+      getFatalityByAge()
     })
     .catch((err) => {
       console.log(err)
       errorMessageContainer.innerHTML = 'Napaka pri nalaganju podatkov, poskusite kasneje.'
+    })
+}
+
+// -------------------------------- get fatality by age ---------------------------------
+
+function getFatalityByAge() {
+  fetch('https://covid19-server.chrismichael.now.sh/api/v1/FatalityRateByAge')
+    .then((res) => res.json())
+    .then((data) => {
+      document.querySelector('.range-number-zero').innerHTML = data.table[0].DeathRateAllCases
+      document.querySelector('.range-number-one').innerHTML = data.table[1].DeathRateAllCases
+      document.querySelector('.range-number-two').innerHTML = data.table[2].DeathRateAllCases
+      document.querySelector('.range-number-three').innerHTML = data.table[3].DeathRateAllCases
+      document.querySelector('.range-number-four').innerHTML = data.table[4].DeathRateAllCases
+      document.querySelector('.range-number-five').innerHTML = data.table[5].DeathRateAllCases
+      document.querySelector('.range-number-six').innerHTML = data.table[6].DeathRateAllCases
+      document.querySelector('.range-number-seven').innerHTML = data.table[7].DeathRateAllCases
+      document.querySelector('.range-number-eight').innerHTML = 'no fatalities' ? 'Ni smrtnih žrtev' : data.table[8].DeathRateAllCases
     })
 }
