@@ -192,6 +192,7 @@ function getCovidData() {
       showTableData()
       getCountry()
       getFatalityByAge()
+      getFatalityBySex()
     })
     .catch((err) => {
       console.log(err)
@@ -214,5 +215,16 @@ function getFatalityByAge() {
       document.querySelector('.range-number-six').innerHTML = data.table[6].DeathRateAllCases
       document.querySelector('.range-number-seven').innerHTML = data.table[7].DeathRateAllCases
       document.querySelector('.range-number-eight').innerHTML = 'no fatalities' ? 'Ni smrtnih žrtev' : data.table[8].DeathRateAllCases
+    })
+}
+
+//-------------------------------- get fatality by sex ---------------------------------
+
+function getFatalityBySex() {
+  fetch('https://covid19-server.chrismichael.now.sh/api/v1/FatalityRateByAge')
+    .then((res) => res.json())
+    .then((data) => {
+      document.querySelector('.number-female').innerHTML = data.table[1].DeathRateAllCases
+      document.querySelector('.number-male').innerHTML = data.table[0].DeathRateAllCases
     })
 }

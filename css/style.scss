@@ -197,6 +197,7 @@ nav {
     align-items: center;
     width: 90%;
     border-bottom: 1px solid $primaryColor;
+    margin-bottom: 4rem;
 
     .deaths-by-age-title {
       width: 100%;
@@ -219,6 +220,63 @@ nav {
       margin-bottom: 0.5rem;
 
       .range-number {
+        color: $secondaryColor;
+      }
+    }
+  }
+}
+
+.deaths-by-sex {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .deaths-by-sex-title {
+    width: 100%;
+    text-align: center;
+    color: $primaryColor;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+  }
+
+  .deaths-by-sex-container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid $primaryColor;
+  }
+
+  .deaths-by-sex-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+
+    .deaths-by-sex-female {
+      .deaths-by-sex-female-icon {
+        font-size: 5rem;
+        color: #df6488;
+      }
+    }
+    .deaths-by-sex-male {
+      .deaths-by-sex-male-icon {
+        font-size: 5rem;
+        color: #0b79b3;
+      }
+    }
+
+    .deaths-by-sex-female,
+    .deaths-by-sex-male {
+      display: flex;
+      flex-direction: column;
+
+      font-size: 1.2rem;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: bold;
+      color: $terciaryColor;
+
+      .deaths-by-sex-number {
         color: $secondaryColor;
       }
     }
@@ -431,6 +489,15 @@ footer {
     }
   }
 
+  .deaths-by-sex {
+    .deaths-by-sex-container {
+      width: 70%;
+      .deaths-by-sex-inner {
+        width: 40%;
+      }
+    }
+  }
+
   .refresh {
     .refresh-container {
       width: 70%;
@@ -481,6 +548,17 @@ footer {
       }
     }
   }
+  .deaths-by-sex {
+    .deaths-by-sex-title {
+      font-size: 2.5rem;
+    }
+    .deaths-by-sex-container {
+      width: 60%;
+      .deaths-by-sex-inner {
+        width: 40%;
+      }
+    }
+  }
 
   .refresh {
     .refresh-container {
@@ -517,6 +595,17 @@ footer {
       }
       .range {
         font-size: 1.2rem;
+      }
+    }
+  }
+  .deaths-by-sex {
+    .deaths-by-sex-title {
+      font-size: 3rem;
+    }
+    .deaths-by-sex-container {
+      width: 35%;
+      .deaths-by-sex-inner {
+        width: 40%;
       }
     }
   }

@@ -257,6 +257,7 @@ nav img {
           align-items: center;
   width: 90%;
   border-bottom: 1px solid #34701c;
+  margin-bottom: 4rem;
 }
 
 .deaths-by-age .deaths-by-age-container .deaths-by-age-title {
@@ -285,6 +286,80 @@ nav img {
 }
 
 .deaths-by-age .deaths-by-age-container .range .range-number {
+  color: #63954f;
+}
+
+.deaths-by-sex {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.deaths-by-sex .deaths-by-sex-title {
+  width: 100%;
+  text-align: center;
+  color: #34701c;
+  font-size: 1.4rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+}
+
+.deaths-by-sex .deaths-by-sex-container {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 1px solid #34701c;
+}
+
+.deaths-by-sex .deaths-by-sex-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 40%;
+}
+
+.deaths-by-sex .deaths-by-sex-inner .deaths-by-sex-female .deaths-by-sex-female-icon {
+  font-size: 5rem;
+  color: #df6488;
+}
+
+.deaths-by-sex .deaths-by-sex-inner .deaths-by-sex-male .deaths-by-sex-male-icon {
+  font-size: 5rem;
+  color: #0b79b3;
+}
+
+.deaths-by-sex .deaths-by-sex-inner .deaths-by-sex-female,
+.deaths-by-sex .deaths-by-sex-inner .deaths-by-sex-male {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.2rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+.deaths-by-sex .deaths-by-sex-inner .deaths-by-sex-female .deaths-by-sex-number,
+.deaths-by-sex .deaths-by-sex-inner .deaths-by-sex-male .deaths-by-sex-number {
   color: #63954f;
 }
 
@@ -569,6 +644,12 @@ footer a {
   .deaths-by-age .deaths-by-age-container {
     width: 70%;
   }
+  .deaths-by-sex .deaths-by-sex-container {
+    width: 70%;
+  }
+  .deaths-by-sex .deaths-by-sex-container .deaths-by-sex-inner {
+    width: 40%;
+  }
   .refresh .refresh-container {
     width: 70%;
   }
@@ -605,6 +686,15 @@ footer a {
   .deaths-by-age .deaths-by-age-container .deaths-by-age-title {
     font-size: 2.5rem;
   }
+  .deaths-by-sex .deaths-by-sex-title {
+    font-size: 2.5rem;
+  }
+  .deaths-by-sex .deaths-by-sex-container {
+    width: 60%;
+  }
+  .deaths-by-sex .deaths-by-sex-container .deaths-by-sex-inner {
+    width: 40%;
+  }
   .refresh .refresh-container {
     width: 60%;
   }
@@ -636,6 +726,15 @@ footer a {
   }
   .deaths-by-age .deaths-by-age-container .range {
     font-size: 1.2rem;
+  }
+  .deaths-by-sex .deaths-by-sex-title {
+    font-size: 3rem;
+  }
+  .deaths-by-sex .deaths-by-sex-container {
+    width: 35%;
+  }
+  .deaths-by-sex .deaths-by-sex-container .deaths-by-sex-inner {
+    width: 40%;
   }
   .refresh .refresh-container {
     width: 35%;
