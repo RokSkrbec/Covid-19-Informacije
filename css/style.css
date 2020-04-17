@@ -236,9 +236,7 @@ nav img {
 
 .deaths-by-age {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -291,9 +289,7 @@ nav img {
 
 .deaths-by-sex {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -735,6 +731,10 @@ footer a {
   }
   .deaths-by-sex .deaths-by-sex-container .deaths-by-sex-inner {
     width: 40%;
+  }
+  .deaths-by-sex .deaths-by-sex-container .deaths-by-sex-inner .deaths-by-sex-female,
+  .deaths-by-sex .deaths-by-sex-container .deaths-by-sex-inner .deaths-by-sex-male {
+    font-size: 1.2rem;
   }
   .refresh .refresh-container {
     width: 35%;

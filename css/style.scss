@@ -188,7 +188,7 @@ nav {
 
 .deaths-by-age {
   width: 100%;
-  display: flex;
+  display: none; // set to none, api changed (flex)
   justify-content: center;
 
   .deaths-by-age-container {
@@ -228,7 +228,7 @@ nav {
 
 .deaths-by-sex {
   width: 100%;
-  display: flex;
+  display: none; //set to none, api changed (flex)
   flex-direction: column;
   align-items: center;
 
@@ -604,8 +604,14 @@ footer {
     }
     .deaths-by-sex-container {
       width: 35%;
+
       .deaths-by-sex-inner {
         width: 40%;
+
+        .deaths-by-sex-female,
+        .deaths-by-sex-male {
+          font-size: 1.2rem;
+        }
       }
     }
   }

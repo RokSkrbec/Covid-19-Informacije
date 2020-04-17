@@ -191,8 +191,8 @@ function getCovidData() {
       document.querySelector('.order-total-cases').innerHTML = '<img src="images/order-desc.svg" alt="order desc arrow">'
       showTableData()
       getCountry()
-      getFatalityByAge()
-      getFatalityBySex()
+      //getFatalityByAge()
+      //getFatalityBySex()
     })
     .catch((err) => {
       console.log(err)
